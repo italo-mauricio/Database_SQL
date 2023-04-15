@@ -15,7 +15,6 @@ SELECT firstName, lastName
 FROM Person.Person;
 
 
-/* 
 
 Essas são consultas em SQL (Structured Query Language) que acessam informações armazenadas em um banco de dados.
 
@@ -29,4 +28,4 @@ A quarta consulta, "SELECT firstName,middleName,lastName FROM Person.Person", se
 
 Cada uma dessas consultas pode ser usada para obter informações específicas do banco de dados, de acordo com as necessidades de cada usuário.
 
- */
+ 
