@@ -16,3 +16,5 @@ WHERE weight > 500 and weight < 700;
     A saida vai me retorna no banco de dados todos os produtos com peso entre 500 e 700 kg.
 
 */
+
+
