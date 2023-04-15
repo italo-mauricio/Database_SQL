@@ -21,3 +21,10 @@ Caso eu queria os produtos que NÃO estão entre 1000 e 1500, devo apenas adicio
 SELECT *
 FROM Production.Product
 WHERE ListPrice NOT between 1000 and 1500;
+
+Agora eu quero saber quais pessoas foram contratadas do ano de 2009 a 2010:
+
+SELECT *
+FROM HumanResources.Employee
+WHERE HireDate BETWEEN '2009/01/01' AND '2010/01/01';
+ORDER BY HireDate
