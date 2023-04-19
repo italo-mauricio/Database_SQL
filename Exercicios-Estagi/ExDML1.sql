@@ -67,5 +67,39 @@ Output:    nomedepartamento              codigoreduzido
             Departamento 2                    DCM 
             Departamento 1                    DCN 
 
+6) Selecione todas as idades dos alunos, sem repeti-las:
+
+Resp: SELECT DISTINCT idade FROM aluno;
+
+Desta forma ele mostrará todas as idades sem repetilás.
+
+Output:      idade 
+
+              NULL
+              23
+              27
+              25
+              28
+
+7) Selecione a matricula, o nome, a idade e a idade + 2 apelidando esta ultima
+coluna de “provavel_idade_formado”:
+
+Resp: SELECT matricula, nome, idade, idade + 2 AS provavel_idade_formado FROM aluno;
+
+Output:  matricula     nome       idade      provavel_idade_formado
+        188.988        Italo       23                25
+        193.948        Pedro       23                25
+        198.962        Bianca      23                25
+        123.444        Joaquin     23                25
+        154.983        Carlos      23                25
+        143.982        Amanda      23                25
+        183.954        Anna        23                25
+        138.943        Bruna       23                25
+
+8) Faça retornar o seguinte texto oriundo da tabela Aluno
+Aluno: xxxxxx nascido em: xxxxx estará com a idade aproximada de xx ao
+se formar!
+
+
 
 
