@@ -26,3 +26,21 @@ Output:   cod    nome       cargo       dtcontratacao  codgerente  salarioatual 
 
         cod    nome       cargo       dtcontratacao  codgerente  salarioatual  novosalario 
         |  4  |  Italo | Analista de TI |   2022-11-03  |  G03     |    5000     |   5500
+
+4) Selecione a coluna sigla na tabela Departamento, sem repetir registros
+iguais.
+
+
+Resp: SELECT DISTINCT sigla FROM Departamento;
+
+Output:   sigla
+        DCQ
+        DCE
+        DCW
+        DCT
+        DCA 
+        DCP
+        DCI 
+        DCY
+        DCU 
+        DCO                       
