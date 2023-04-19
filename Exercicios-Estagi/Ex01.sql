@@ -45,4 +45,27 @@ Output:   sigla
         DCI 
         DCY
         DCU 
-        DCO                       
+        DCO      
+
+5) Selecione a descricao e a sigla na tabela Departamento, sem repetir
+registros iguais. Apelide a coluna descricao de “nomedepartamento” e sigla
+de “codigoreduzido”:
+
+Resp: SELECT DISTINCT descricao AS nomedepartamento, sigla AS codigoreduzido FROM Departamento;
+
+Em resumo, eu retirei a redudância da tabela, pegando apenas a sigla e o nome do departamento sem repetições;
+
+Output:    nomedepartamento              codigoreduzido
+
+            Departamento 4                    DCA 
+            Departamento 5                    DCU 
+            Departamento 10                   DCO 
+            Departamento 7                    DCI 
+            Departamento 8                    DCT 
+            Departamento 9                    DCB 
+            Departamento 3                    DCP 
+            Departamento 2                    DCM 
+            Departamento 1                    DCN 
+
+
+
