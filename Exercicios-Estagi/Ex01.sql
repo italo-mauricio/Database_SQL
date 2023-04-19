@@ -31,7 +31,9 @@ Output:   cod    nome       cargo       dtcontratacao  codgerente  salarioatual 
 iguais.
 
 
-Resp: SELECT DISTINCT sigla FROM Departamento;
+Resp: SELECT DISTINCT sigla FROM Departamento;  
+
+Com o uso do DISTINCT eu consigo especificar o que eu quero na tabela
 
 Output:   sigla
         DCQ
