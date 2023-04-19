@@ -17,3 +17,12 @@ VALUES (3, 'Pedro', 'Suporte de TI', '2022-05-02', 'G02', 10000);
 
 SELECT cod, nome, cargo, dtcontratacao, codgerente, salarioatual, salarioatual * 1.1 AS novosalario
 FROM funcionario;
+
+INSERT INTO funcionario (cod, nome, cargo, dtcontratacao, codgerente, salarioatual)
+VALUES (3, 'Italo', 'Analista de TI', '2022-11-03', 'G03', 5000);
+
+Output:   cod    nome       cargo       dtcontratacao  codgerente  salarioatual  novosalario 
+        |  3  |  Pedro | Suporte de TI  |   2022-05-02  |  G02     |    10000    |   11000
+
+        cod    nome       cargo       dtcontratacao  codgerente  salarioatual  novosalario 
+        |  4  |  Italo | Analista de TI |   2022-11-03  |  G03     |    5000     |   5500
