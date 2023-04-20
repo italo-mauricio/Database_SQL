@@ -43,3 +43,5 @@ Output:     matricula            nome                email
            201.618.375      CESAR AUGUSTO           cesar@gmail.com 
 
 Não vai aparecer a cidade "RECIFE" pois não especificamos a cidade no SELECT porém se você pedir pra ele demonstrar, vai verificar que a busca foi realizada com sucesso e esses dois nomes estão no banco de dados na cidade de Recife. 
+
+
