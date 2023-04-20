@@ -22,3 +22,15 @@ BETWEEN, LIKE e o IS:
 ... WHERE matricula NOT BETWEEN 1000 AND 2000
 ... WHERE nome NOT LIKE ('_A%')
 ... WHERE telefone IS NOT NULL
+
+
+Exemplo de código: 
+
+SELECT email,nome,matricula,idade
+FROM aluno
+WHERE nome LIKE 'MAR%'
+AND idade >=18;
+
+Output:       email              nome            matricula        idade 
+
+        marcelo@gmail.com    MARCELO SOARES      201.510.501        25
