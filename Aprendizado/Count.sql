@@ -4,7 +4,7 @@ SELECT COUNT(DISTINCT coluna)
 FROM TABELA 
 
 
-/* Como funciona o COUNT no SQL?
+Como funciona o COUNT no SQL?
 Em SQL, COUNT é uma função agregada que é usada para contar o número de linhas em uma tabela ou em um grupo de resultados de uma consulta.
 
 A sintaxe básica da função COUNT é a seguinte:
@@ -22,4 +22,3 @@ Nessa consulta, estamos contando o número de linhas na tabela "customers" que a
 
 Em resumo, a função COUNT é usada para contar o número de linhas em uma tabela ou em um grupo de resultados de uma consulta, e pode ser usada em combinação com outras cláusulas SQL para filtrar ou agrupar os resultados.
 
-*/

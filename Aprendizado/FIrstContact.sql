@@ -13,7 +13,7 @@ SELECT firstName, lastName
 FROM Person.Person;
 
 
-/*
+
 Essas são consultas em SQL (Structured Query Language) que acessam informações armazenadas em um banco de dados.
 
 A primeira consulta, "SELECT * FROM person.Person", seleciona todas as colunas da tabela "Person" no esquema "person". Isso significa que serão retornados todos os registros de pessoas presentes na tabela, incluindo informações como nome, endereço, data de nascimento, entre outros.
@@ -26,4 +26,3 @@ A quarta consulta, "SELECT firstName,middleName,lastName FROM Person.Person", se
 
 Cada uma dessas consultas pode ser usada para obter informações específicas do banco de dados, de acordo com as necessidades de cada usuário.
 
-*/
