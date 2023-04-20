@@ -100,6 +100,13 @@ Output:  matricula     nome       idade      provavel_idade_formado
 Aluno: xxxxxx nascido em: xxxxx estará com a idade aproximada de xx ao
 se formar!
 
+Resp: SELECT CONCAT('Aluno: ', nome, ' nascido em: ', TO_CHAR(dtnascimento, 'DD/MM/YYYY'), ' estará com a idade aproximada de ', idade+4, ' ao se formar!') AS texto
+FROM Aluno
+
+Utilizando o CONCAT para concatenar as strings com as colunas da tabela e utilizando do comando AS para transoformar tudo isso em texto.
+
+Output: Aluno: italo nascido em 18/06/1998 estará com a idade aproximada de 27 ao se formar!
+
 
 
 
