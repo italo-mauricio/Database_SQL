@@ -32,3 +32,10 @@ Resp:   UPDATE aluno
 
 Resp:   UPDATE disciplina 
         SET cargahoraria = '60';  na tabela aluno irá trocar toda a carga horária para 60.
+
+
+4) Crie uma consulta para exibir o nome e o salário dos funcionários que recebem mais de R$ 800,00.
+
+Resp:   select *
+        from funcionario 
+        where salarioatual > '800'  Aqui só irá aparecer na tela os funcionários com salario maior que 800 reais.
