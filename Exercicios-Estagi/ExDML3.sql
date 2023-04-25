@@ -95,7 +95,22 @@ Resp:
 
             Resumindo, esta consulta SQL retorna uma lista de funcionários que trabalham em um dos departamentos especificados ('Departamento 10', 'Departamento 5', 'Departamento 2'), juntamente com o número do departamento em que cada funcionário trabalha, ordenados por nome do funcionário.
 
+9) Liste o nome e o salário dos funcionários que recebem mais de R$ 1500,00 e que estão nos departamentos 10 ou 30. Nomeie as colunas Nome e Salário, para Funcionário e Salário do Mês.
 
+Resp: 
+
+    SELECT f.nome as funcionario, f.salarioatual AS "Salário do Mês"
+    FROM funcionario f 
+    JOIN departamento d  ON f.cod = d.cod
+    WHERE f.salarioatual > 1500
+    AND d.cod BETWEEN 1 AND 30
+
+    output:  funcionario        Salario do Mês
+
+                joão                3.000
+                italo               10.000
+                pedro               5.000
+                amanda              8.000
     
 
 
