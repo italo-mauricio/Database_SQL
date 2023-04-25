@@ -57,3 +57,10 @@ Resp:   SELECT f.cod, f.nome, f.cargo, f.dtcontratacao, f.codgerente, f.salarioa
 
           459     Pablo    Analista de TI     2022-02-03     G10            150000
 
+6) Exiba o nome e o salário de todos os funcionários cujos salários não estejam na faixa entre R$ 950,00 e R$ 2300,00.
+
+Resp: 
+        SELECT nome, salarioatual
+        FROM funcionario
+        WHERE salarioatual BETWEEN 950 AND 2500      ele vai me retornar só os funcionarios nesta faixa salarial
+
