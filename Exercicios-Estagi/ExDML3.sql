@@ -15,3 +15,14 @@ Resp:   select *
 
         update aluno set telefone = '111111'
         where matricula = 188988   caso eu queira troar especificamente o numero de alguem 
+
+2) Atualize os alunos, aumentando em um ano a idade de todos os alunos que nasceram depois de 01/01/1980.
+
+
+Resp:   UPDATE aluno 
+        SET idade = idade + 1 
+        WHERE dtnascimento > '1980-01-01';     vai adicionar + 1 se você nasceu depois dessa data. 
+
+        UPDATE aluno 
+        SET idade = idade + 1
+        WHERE cidade = 'Caicó';     vai adicionar + 1 se você nasceu em Caicó.
