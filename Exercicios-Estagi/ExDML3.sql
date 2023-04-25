@@ -111,6 +111,10 @@ Resp:
                 italo               10.000
                 pedro               5.000
                 amanda              8.000
+
+10) Exiba o nome e a data de admissão de cada funcionário admitido em 2004:
+
+    
     
 
 
