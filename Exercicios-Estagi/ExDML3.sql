@@ -75,10 +75,27 @@ Resp:
 
 Resp:
 
-        SELECT f.nome, d.cod, d.sigla AS numero_departamento
+        SELECT f.nome, d.cod AS numero_departamento
         FROM funcionario f
         INNER JOIN departamento d ON f.cod = d.cod
         WHERE d.descricao IN ('Departamento 10', 'Departamento 5', 'Departamento 2', 'Departamento 4')
         ORDER BY f.nome ASC;
+
+        Explicação:
+
+            Esse código é uma consulta SQL que retorna o nome dos funcionários e o número do departamento em que trabalham.
+
+            A primeira linha SELECT especifica que você deseja recuperar duas colunas: o nome do funcionário (f.nome) e o número do departamento (d.cod).
+
+            A partir da segunda linha, a consulta usa a cláusula FROM para especificar que a tabela funcionário (f) e a tabela departamento (d) devem ser combinadas usando a cláusula INNER JOIN. A condição de junção é que o código do funcionário (f.cod) deve ser igual ao código do departamento (d.cod).
+
+            A cláusula WHERE é usada para filtrar os resultados da consulta. Neste caso, a condição é que a descrição do departamento (d.descricao) deve ser uma das seguintes: 'Departamento 10', 'Departamento 5' ou 'Departamento 2'.
+
+            Finalmente, a consulta é ordenada em ordem crescente pelo nome do funcionário, usando a cláusula ORDER BY.
+
+            Resumindo, esta consulta SQL retorna uma lista de funcionários que trabalham em um dos departamentos especificados ('Departamento 10', 'Departamento 5', 'Departamento 2'), juntamente com o número do departamento em que cada funcionário trabalha, ordenados por nome do funcionário.
+
+
+    
 
 
