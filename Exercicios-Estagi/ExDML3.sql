@@ -26,3 +26,9 @@ Resp:   UPDATE aluno
         UPDATE aluno 
         SET idade = idade + 1
         WHERE cidade = 'Caicó';     vai adicionar + 1 se você nasceu em Caicó.
+
+
+3) Atualize as disciplinas, deixando todas com carga horária igual a 60.
+
+Resp:   UPDATE disciplina 
+        SET cargahoraria = '60';  na tabela aluno irá trocar toda a carga horária para 60.
