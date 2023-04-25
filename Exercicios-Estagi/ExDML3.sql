@@ -39,3 +39,21 @@ Resp:   UPDATE disciplina
 Resp:   select *
         from funcionario 
         where salarioatual > '800'  Aqui só irá aparecer na tela os funcionários com salario maior que 800 reais.
+
+5) Crie uma consulta para exibir o nome do funcionário e o número do departamento para o código do funcionário 459.
+
+Resp:   SELECT f.cod, f.nome, f.cargo, f.dtcontratacao, f.codgerente, f.salarioatual, d.descricao, d.sigla
+        FROM funcionario f
+        JOIN departamento d ON f.cod = d.cod;    desta forma eu irei selecionar a tabela tanto de departamento quanto de funcionario, e vincular o código de ambos
+
+        select *
+        from funcionario 
+        where cod = '459'    e aqui irei mostrar o cod do funcionário 459
+
+
+        output:
+        
+          cod      nome        cargo        dtcontratacao  codgerente   salarioatual
+
+          459     Pablo    Analista de TI     2022-02-03     G10            150000
+
