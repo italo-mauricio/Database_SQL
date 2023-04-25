@@ -64,3 +64,21 @@ Resp:
         FROM funcionario
         WHERE salarioatual BETWEEN 950 AND 2500      ele vai me retornar só os funcionarios nesta faixa salarial
 
+7) Exiba o nome do funcionário. o cargo e a data dos funcionários admitidos entre 20 de fevereiro de 2004 e 1 de maio de 2007.
+
+Resp:   
+        select f.nome, f.cargo, f.dtcontratacao
+        from funcionario f 
+        where dtcontratacao between '2004-01-20' and '2007-05-01'
+
+8) Exiba o nome do funcionário e o número do departamento de todos os funcionários dos departamentos 10 e 30, por ordem alfabética de nome.
+
+Resp:
+
+        SELECT f.nome, d.cod, d.sigla AS numero_departamento
+        FROM funcionario f
+        INNER JOIN departamento d ON f.cod = d.cod
+        WHERE d.descricao IN ('Departamento 10', 'Departamento 5', 'Departamento 2', 'Departamento 4')
+        ORDER BY f.nome ASC;
+
+
