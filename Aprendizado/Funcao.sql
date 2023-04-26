@@ -200,3 +200,28 @@ Este código irá retornar:
                             
 Observe que a função COALESCE retorna o primeiro valor não nulo da lista de valores, então se o apelido de um cliente for nulo, ela retorna o nome em seguida e, por fim, uma string vazia.
 
+
+A cláusula "CASE WHEN" em SQL é usada para avaliar uma expressão em uma condição e, em seguida, retornar um resultado baseado nessa avaliação.
+
+A sintaxe básica é a seguinte:
+
+            CASE 
+                WHEN condição1 THEN resultado1 
+                WHEN condição2 THEN resultado2 
+                ...
+                ELSE resultadoPadrao 
+            END
+    Aqui está um exemplo simples: suponha que temos uma tabela de produtos com colunas para o nome do produto e o preço. Queremos criar uma nova coluna que indique se um produto é "caro" ou "barato", com base no preço. Podemos usar a cláusula "CASE WHEN" para fazer isso, como mostrado abaixo:
+
+       
+       SELECT nome_produto, preco,
+       CASE 
+            WHEN preco > 100 THEN 'caro'
+            ELSE 'barato' 
+       END AS classificacao
+       FROM produtos;
+       
+Neste exemplo, a expressão "CASE WHEN" avalia a condição "preco > 100". Se essa condição for verdadeira, a expressão retornará "caro", caso contrário, ela retornará "barato". O resultado final será uma tabela que inclui o nome do produto, o preço e a classificação (caro ou barato) de cada produto.
+
+A cláusula "CASE WHEN" também pode ser usada com várias condições, utilizando várias instruções "WHEN" seguidas por uma instrução "ELSE". Além disso, a cláusula pode ser aninhada dentro de outras cláusulas "CASE WHEN" para permitir uma maior flexibilidade na construção de consultas SQL.
+
