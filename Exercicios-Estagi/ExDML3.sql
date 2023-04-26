@@ -114,6 +114,19 @@ Resp:
 
 10) Exiba o nome e a data de admissão de cada funcionário admitido em 2004:
 
+Resp: 
+        SELECT nome, dtcontratacao
+        FROM funcionarios
+        WHERE EXTRACT(YEAR FROM dtcontratacao) = 2004;    Em algumas versões do PostGreSQL não suportam "WHERE YEAR()" por isso deve-se usar o EXTRACT nesse caso.
+
+11) Exiba o nome e o cargo de cada funcionário que não possua gerente
+
+Resp:
+        SELECT nome, cargo
+        FROM funcionario
+        WHERE cargo IS NULL;     ele irá verificar se o código de gerente do funcionário existe ou não.
+
+
     
     
 
