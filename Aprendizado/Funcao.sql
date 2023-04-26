@@ -130,19 +130,40 @@ CONVERT() - Essa função é semelhante à função CAST(), mas oferece mais op�
 
 PARSE() - Essa função é usada para converter uma string em um valor de um tipo de dados específico. A função PARSE() é útil para converter valores inseridos pelo usuário em um formato diferente para o formato necessário para armazenamento em um banco de dados.
 
-    Exemplo do uso do parse():
+        Exemplo do uso do parse():
 
-        SELECT PARSENAME(REPLACE(endereco,',','.'), 4) AS rua,
-        PARSENAME(REPLACE(endereco,',','.'), 3) AS cidade,
-        PARSENAME(REPLACE(endereco,',','.'), 2) AS estado,
-        PARSENAME(REPLACE(endereco,',','.'), 1) AS cep
-        FROM clientes;
+            SELECT PARSENAME(REPLACE(endereco,',','.'), 4) AS rua,
+            PARSENAME(REPLACE(endereco,',','.'), 3) AS cidade,
+            PARSENAME(REPLACE(endereco,',','.'), 2) AS estado,
+            PARSENAME(REPLACE(endereco,',','.'), 1) AS cep
+            FROM clientes;
 
-        Neste exemplo, a função REPLACE() é usada para substituir as vírgulas na coluna "endereco" por pontos, pois a função PARSENAME() usa pontos como separadores padrão para obter informações de uma string. A função PARSENAME() é usada para separar as informações de endereço em quatro colunas diferentes, usando o ponto como separador. Cada chamada da função PARSENAME() tem dois argumentos: o primeiro é a string de origem (a coluna "endereco") e o segundo é um número inteiro que indica qual elemento da string deve ser retornado.
+            Neste exemplo, a função REPLACE() é usada para substituir as vírgulas na coluna "endereco" por pontos, pois a função PARSENAME() usa pontos como separadores padrão para obter informações de uma string. A função PARSENAME() é usada para separar as informações de endereço em quatro colunas diferentes, usando o ponto como separador. Cada chamada da função PARSENAME() tem dois argumentos: o primeiro é a string de origem (a coluna "endereco") e o segundo é um número inteiro que indica qual elemento da string deve ser retornado.
 
 
 TRY_CONVERT() - Essa função é semelhante à função CONVERT(), mas retorna um valor nulo se a conversão falhar em vez de gerar um erro. A função TRY_CONVERT() é útil quando você deseja converter valores que podem ou não estar no formato correto.
 
+            Exemplo do uso do try convert:
+
+                SELECT *
+                FROM funcionarios
+                WHERE TRY_CONVERT(INT, idade) > 30;
+
+            Neste exemplo, a função TRY_CONVERT() é usada para tentar converter a coluna "idade" em um tipo de dados INT, que representa valores inteiros. Se a conversão for bem sucedida, a função retorna o valor convertido. Caso contrário, a função retorna NULL. A cláusula WHERE é usada para filtrar apenas os registros cujas idades são maiores que 30, utilizando o valor convertido pela função TRY_CONVERT(), quando possível.
+
+            Note que, ao utilizar a função TRY_CONVERT(), é possível lidar com situações em que alguns valores armazenados em uma coluna não possam ser convertidos em um determinado tipo de dados. Dessa forma, evita-se que erros ocorram durante a execução da consulta.
+
+
 TRY_CAST() - Essa função é semelhante à função CAST(), mas retorna um valor nulo se a conversão falhar em vez de gerar um erro. A função TRY_CAST() é útil quando você deseja converter valores que podem ou não estar no formato correto.
+
+        Exemplo do uso do try cast:
+
+            SELECT AVG(TRY_CAST(preco AS DECIMAL(10,2))) AS media_precos
+            FROM produtos;
+
+        Neste exemplo, a função TRY_CAST() é usada para tentar converter a coluna "preco" em um tipo de dados DECIMAL(10,2), que representa valores numéricos com até 10 dígitos, sendo 2 deles após a vírgula. Se a conversão for bem sucedida, a função retorna o valor convertido. Caso contrário, a função retorna NULL. A função AVG() é usada para calcular a média dos valores convertidos e a média é atribuída a um alias chamado "media_precos".
+
+        Note que, ao utilizar a função TRY_CAST(), é possível lidar com situações em que alguns valores armazenados em uma coluna não possam ser convertidos em um determinado tipo de dados. Dessa forma, evita-se que erros ocorram durante a execução da consulta. Além disso, ao utilizar a função AVG(), podemos realizar cálculos sobre os valores convertidos.
+
 
 É importante lembrar que nem todas as conversões são possíveis ou permitidas no SQL, dependendo do tipo de dados envolvido e das regras de integridade do banco de dados. Portanto, é importante entender as limitações e possibilidades de cada função de conversão antes de usá-la em seu código SQL.
