@@ -106,7 +106,7 @@ As funções de conversão mais comuns no SQL incluem:
 CAST() - Essa função é usada para converter um valor de um tipo de dados para outro tipo de dados. Por exemplo, se você tiver uma coluna que contém valores numéricos armazenados como texto, poderá usar a função CAST() para converter esses valores em valores numéricos.
 
     Exemplo do uso do Cast():
-    
+
         SELECT AVG(CAST(preco AS NUMERIC(10,2))) AS media_precos FROM produtos
 
         Neste exemplo, a função CAST() é usada para converter a coluna "preco" em um tipo de dados numérico, com uma precisão de até 10 dígitos e 2 casas decimais. Em seguida, a função AVG() é usada para calcular a média dos preços convertidos. A média é atribuída a um alias chamado "media_precos".
@@ -129,6 +129,17 @@ CONVERT() - Essa função é semelhante à função CAST(), mas oferece mais op�
 
 
 PARSE() - Essa função é usada para converter uma string em um valor de um tipo de dados específico. A função PARSE() é útil para converter valores inseridos pelo usuário em um formato diferente para o formato necessário para armazenamento em um banco de dados.
+
+    Exemplo do uso do parse():
+
+        SELECT PARSENAME(REPLACE(endereco,',','.'), 4) AS rua,
+        PARSENAME(REPLACE(endereco,',','.'), 3) AS cidade,
+        PARSENAME(REPLACE(endereco,',','.'), 2) AS estado,
+        PARSENAME(REPLACE(endereco,',','.'), 1) AS cep
+        FROM clientes;
+
+        Neste exemplo, a função REPLACE() é usada para substituir as vírgulas na coluna "endereco" por pontos, pois a função PARSENAME() usa pontos como separadores padrão para obter informações de uma string. A função PARSENAME() é usada para separar as informações de endereço em quatro colunas diferentes, usando o ponto como separador. Cada chamada da função PARSENAME() tem dois argumentos: o primeiro é a string de origem (a coluna "endereco") e o segundo é um número inteiro que indica qual elemento da string deve ser retornado.
+
 
 TRY_CONVERT() - Essa função é semelhante à função CONVERT(), mas retorna um valor nulo se a conversão falhar em vez de gerar um erro. A função TRY_CONVERT() é útil quando você deseja converter valores que podem ou não estar no formato correto.
 
