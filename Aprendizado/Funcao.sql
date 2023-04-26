@@ -47,7 +47,7 @@
 
     
             Funções Mais Comuns
-            
+
     
     ● Os SGBDs normalmente disponibilizam funções para
         
@@ -75,8 +75,3 @@
 
 
     
-
-Funções diversas
-●
-●
-http://www.postgresql.org/docs/9.3/interactive/functions-string.html
