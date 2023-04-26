@@ -126,6 +126,33 @@ Resp:
         FROM funcionario
         WHERE cargo IS NULL;     ele irá verificar se o código de gerente do funcionário existe ou não.
 
+12) Exiba os nomes de todos os funcionários que possuem um A na segunda letra de seus nomes
+
+Resp: 
+        SELECT nome
+        FROM funcionario
+        WHERE LOWER(SUBSTRING(nome FROM 2 FOR 1)) = 'a';
+
+13) Exiba todos os funcionários que possuem duas letras A em seus nomes e estão no departamento 30 ou seu gerente seja o 7529, ordenado pelo código do departamento de forma decrescente;
+
+Resp:   
+        SELECT f.*
+        FROM funcionario f
+        INNER JOIN departamento d ON f.cod = d.cod
+        WHERE (f.nome LIKE '%a%a%' AND f.cod = 30) OR f.codgerente = '7529'
+        ORDER BY d.cod DESC;
+
+        Explicação:
+
+        SELECT f.*: seleciona todas as colunas da tabela funcionarios.
+        FROM funcionarios f: especifica a tabela funcionarios como a fonte dos dados e atribui o alias "f" a ela.
+        INNER JOIN departamento d ON f.coddept = d.cod: junta a tabela funcionarios com a tabela departamento usando a coluna coddept da tabela funcionarios e a coluna cod da tabela departamento. Isso nos permite acessar a coluna cod na cláusula ORDER BY.
+        WHERE (f.nome LIKE '%a%a%' AND d.cod = 30) OR f.codgerente = 7529: filtra os resultados para incluir apenas os funcionários que possuem duas letras "A" em seus nomes e estão no departamento 30 ou cujo código de gerente seja 7529.
+        f.nome LIKE '%a%a%': a cláusula LIKE é usada para verificar se o nome contém duas letras "A".
+        d.cod = 30: a condição para o departamento é aplicada à tabela departamento.
+        f.codgerente = 7529: verifica se o código do gerente é 7529.
+        ORDER BY d.cod DESC: ordena os resultados pelo código do departamento em ordem decrescente.
+
 
     
     
