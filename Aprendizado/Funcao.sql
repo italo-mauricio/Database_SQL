@@ -74,4 +74,23 @@
         
 
 
-    
+                                        Função DATE no SQL
+
+
+No SQL, existem várias funções para trabalhar com datas, incluindo a função GETDATE() que retorna a data e hora atuais do sistema, a função DATEPART() que extrai uma parte específica de uma data e a função DATEADD() que adiciona uma quantidade especificada de tempo a uma data.
+
+A função de data completa, conhecida como CONVERT(), é usada para converter um valor de data ou hora em um formato específico. Ela pode ser usada para exibir a data no formato que você deseja ou para converter uma data de um tipo de dados para outro.
+
+A sintaxe básica da função CONVERT() é a seguinte:
+
+CONVERT(data_type, expression, [style])
+"data_type" é o tipo de dados no qual você deseja converter a expressão
+"expression" é a expressão que você deseja converter
+"style" é o estilo de formato de data que você deseja usar (opcional)
+Por exemplo, se você quiser converter a data atual em um formato de data completo que inclua dia, mês, ano e hora, poderá usar a seguinte expressão:
+
+
+SELECT CONVERT(VARCHAR(25), GETDATE(), 120)
+Neste exemplo, a função GETDATE() é usada para obter a data e hora atuais e a função CONVERT() é usada para convertê-la em uma string de caracteres VARCHAR(25) no formato 120, que representa a data e hora completa no formato "aaaa-mm-dd hh:mi:ss".
+
+Note que o parâmetro "style" é opcional e você pode omiti-lo se desejar usar o formato padrão para o tipo de dados que você está convertendo. Além disso, existem vários estilos de formato de data disponíveis na função CONVERT(), que você pode usar para exibir a data no formato desejado.
