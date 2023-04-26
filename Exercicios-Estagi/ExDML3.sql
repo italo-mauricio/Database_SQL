@@ -164,6 +164,14 @@ Resp:
 
         Utilizando UPDATE estou falando para o SQL que irei atualizar algo na tabela funcionario, o SET eu irei fazer o cálculo, pegando salario atual = salario atual + 300.00, e WHERE irei fazer a condicional, caso o salario atual for menor que 700 reais.
 
+15) De um aumento de 15% aos funcionários do departamento 20:
+
+Resp:   
+        UPDATE funcionario
+        SET salarioatual = salarioatual * 1.15
+        WHERE coddept = 20;
+
+
 
     
     
