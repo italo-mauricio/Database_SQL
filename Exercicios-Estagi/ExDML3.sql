@@ -153,6 +153,17 @@ Resp:
         f.codgerente = 7529: verifica se o código do gerente é 7529.
         ORDER BY d.cod DESC: ordena os resultados pelo código do departamento em ordem decrescente.
 
+14) Premie, aumentando o salário em R$ 300,00, de todos os funcionários que ganham menos de R$ 700,00:
+
+Resp:
+        UPDATE funcionario
+        SET salarioatual = salarioatual + 300.00
+        WHERE salarioatual < 700.00;
+
+        Explicação:
+
+        Utilizando UPDATE estou falando para o SQL que irei atualizar algo na tabela funcionario, o SET eu irei fazer o cálculo, pegando salario atual = salario atual + 300.00, e WHERE irei fazer a condicional, caso o salario atual for menor que 700 reais.
+
 
     
     
