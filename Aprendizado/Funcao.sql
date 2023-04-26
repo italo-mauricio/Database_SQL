@@ -40,4 +40,43 @@
     
     – Nos novos valores do comando Update e Insert
 
-        INSERT INTO tabela (coluna1,colu
+        INSERT INTO tabela (coluna1,coluna2)
+        VALUES (1,funcao7(valor));
+        UPDATE tabela
+        SET coluna4=funcao8(valor);
+
+    
+            Funções Mais Comuns
+            
+    
+    ● Os SGBDs normalmente disponibilizam funções para
+        
+        Caracteres:
+
+            – Colocar em maiúsculo/minúsculo, pedaço da string, tamanho, etc
+
+        Numéricas:
+
+            – Arredondamento, trigonometria, etc
+
+        Datas:
+
+            – Operações de extração e manipulação de datas/hora
+
+        Conversão:
+
+            – Converter de um tipo de dado em outro
+        
+        Gerais:
+
+            – Funções diversas
+
+        
+
+
+    
+
+Funções diversas
+●
+●
+http://www.postgresql.org/docs/9.3/interactive/functions-string.html
