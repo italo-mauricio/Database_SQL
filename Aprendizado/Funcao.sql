@@ -167,3 +167,36 @@ TRY_CAST() - Essa função é semelhante à função CAST(), mas retorna um valo
 
 
 É importante lembrar que nem todas as conversões são possíveis ou permitidas no SQL, dependendo do tipo de dados envolvido e das regras de integridade do banco de dados. Portanto, é importante entender as limitações e possibilidades de cada função de conversão antes de usá-la em seu código SQL.
+
+
+
+                        Funções de condições na projeção
+
+COALESCE
+    A função COALESCE é utilizada para retornar o primeiro valor não nulo em uma lista de valores. Por exemplo, considere a tabela "clientes" com as colunas "nome", "apelido" e "sobrenome":
+
+Exemplo:
+
+                            | nome      | apelido   | sobrenome |
+                            |-----------|-----------|-----------|
+                            | Ana       | NULL      | Silva     |
+                            | NULL      | Carlos    | Souza     |
+                            | João      | Santos    | Pereira   |
+                            | Maria     | Oliveira | NULL       |
+                        
+            Podemos usar a função COALESCE para retornar o nome completo de cada cliente, dando prioridade para o apelido, caso exista:
+
+            SELECT COALESCE(apelido, nome, '') || ' ' || COALESCE(sobrenome, '') AS nome_completo
+            FROM clientes;
+
+Este código irá retornar:
+
+                            | nome_completo         |
+                            |-----------------------|
+                            | Ana Silva             |
+                            | Carlos Souza          |
+                            | João Santos Pereira   |
+                            | Maria Oliveira        |
+                            
+Observe que a função COALESCE retorna o primeiro valor não nulo da lista de valores, então se o apelido de um cliente for nulo, ela retorna o nome em seguida e, por fim, uma string vazia.
+
