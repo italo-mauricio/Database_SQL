@@ -328,3 +328,61 @@ Internamente o SGBD
 ● agrupa primeiro
 ● aplica as funções de grupo
 ● entrega o resultado;
+
+
+
+                            Cuidado
+
+    ● Qualquer coluna ou expressão na lista SELECT que não seja
+    uma função de grupo deve estar na cláusula GROUP BY.
+
+        SELECT cidade,MIN(idade)
+        FROM aluno;    X errado 
+
+        SELECT cidade,MIN(idade)
+        FROM aluno
+        GROUP BY cidade;  V correto 
+
+
+                Misturando
+
+    SELECT UPPER(cidade) as Cidade,MAX(idade) as Idade
+    FROM aluno
+    WHERE telefone is NOT null
+    GROUP BY UPPER(cidade);
+
+
+
+Mas e se quisermos restringir os grupos??
+Por exemplo, queremos só os grupos, onde a idade é maior ou igual à 18.
+
+                        Cláusula HAVING
+
+        SELECT [DISTINCT] {*,nomeColuna [as apelido]}
+        FROM nomeTabela
+        [WHERE condição(ções)]
+        [GROUP BY {expr,expr, ...}]
+        [HAVING condições do grupo]
+        [ORDER BY {coluna, expr, ...} [ASC|DESC]];
+
+● HAVING consegue restringir grupos
+– As linhas são selecionadas
+– A função de grupo é aplicada
+– Os grupos que forem aprovados pela cláusula HAVING são exibidos.
+
+Exemplo: 
+
+    SELECT UPPER(cidade) as Cidade,MAX(idade) as Idade
+    FROM aluno
+    WHERE telefone is NOT null
+    GROUP BY UPPER(cidade)
+    HAVING MAX(idade)>=18
+    ORDER BY 2 DESC;
+
+    output:
+
+        cidade              idade
+
+        CRISTAL             65
+        BEGÉ                33
+
