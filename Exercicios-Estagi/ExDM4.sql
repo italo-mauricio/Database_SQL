@@ -101,7 +101,19 @@ output:
 
     O italo recebe R$ 10.000 mensalmente mas sonha em receber 40.000
 
-    
+8) Faça um select, que retorne o nome do funcionário com a primeira letra em maiúscula e o número de letras que o nome contem. Para todos os funcionários cujos os nomes começam com J ou M. Coloque em ordem decrescente pelo número de letras:
+
+Resp:
+
+    SELECT CONCAT(UPPER(LEFT(nome, 1)), LOWER(SUBSTRING(nome, 2))) AS nome_maiusculo, LENGTH(nome) AS numero_letras
+    FROM funcionario
+    WHERE nome LIKE 'J%' OR nome LIKE 'M%'
+    ORDER BY numero_letras DESC;
+
+    CONCAT(UPPER(LEFT(nome, 1)), LOWER(SUBSTRING(nome, 2))): essa função concatena a primeira letra do nome em maiúsculo com o restante em minúsculo, para que o nome fique com a primeira letra maiúscula e o restante minúsculo.
+    LENGTH(nome): essa função retorna o número de caracteres do nome.
+    WHERE nome LIKE 'J%' OR nome LIKE 'M%': essa cláusula filtra os nomes que começam com "J" ou "M".
+    ORDER BY numero_letras DESC: essa cláusula ordena os resultados em ordem decrescente pelo número de letras do nome.
 
 
 
