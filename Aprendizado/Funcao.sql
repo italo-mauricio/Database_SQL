@@ -244,3 +244,87 @@ A cláusula "CASE WHEN" também pode ser usada com várias condições, utilizan
 ● STDDEV(coluna) – desvio padrão
 ● SUM(coluna) – soma de todos os valores
 ● VARIANCE(coluna) – variação da coluna
+
+
+                     Valores Nulos nas Funções de Grupo
+
+
+● As funções de Grupo descartam valores nulos (null).
+
+                    SELECT COUNT(*)
+                    FROM aluno;
+
+                    SELECT COUNT(telefone)
+                    FROM aluno;
+
+
+
+                        Cuidado
+
+
+● Não é possível solicitar na projeção da mesma consulta
+informações de várias linhas misturadas com funções de
+Grupo:
+
+            SELECT matricula,nome,idade,MAX(idade)    X isso aqui é errado
+            ROM aluno;
+
+● Mas é permitido utilizar na projeção diversas funções de
+grupo e funções de linha sobre funções de grupo.
+
+            SELECT MAX(idade),MIN(idade),ROUND(AVG(idade))
+            FROM aluno;
+
+
+                            GROUP BY
+
+        Usando GROUP BY dividimos as linhas retornadas na
+        consulta/tabela em grupos menores ou subgrupos.
+        
+        ● Podemos utilizar as Funções de Grupo para retornar
+        informações sumárias para cada subgrupo.
+
+        ● É possível agrupar os resultados em vários subgrupos.
+        
+        ● Na tabela abaixo, queremos obter os maiores salários, por cargo dentro de cada departamento.
+
+        Exemplo: 
+                SELECT cargo,coddepartamento,MAX(salario)
+                FROM funcionario
+                GROUP BY coddepartamento,cargo
+                ORDER BY 2;
+
+        output:
+                cargo         coddepartamento      max 
+
+                gerente         10                4000
+                supervisor      10                3400
+                gerente         20                4500
+                supervisor      20                1500
+
+
+        
+        ● SELECT [DISTINCT] {*,coluna, expr [as apelido]}
+          FROM nomeTabela
+          [WHERE condição(ções)]
+          [GROUP BY {coluna, expr, ...}]
+          [ORDER BY {coluna, expr, ...} [ASC|DESC]];
+
+
+          Como obter a maior idade dos aluno agrupado por cidade?
+
+
+                SELECT MAX(idade),cidade
+                FROM aluno
+                GROUP BY cidade;
+
+
+            SELECT MAX(idade),upper(cidade)
+            FROM aluno
+            GROUP BY upper(cidade);
+
+Internamente o SGBD
+
+● agrupa primeiro
+● aplica as funções de grupo
+● entrega o resultado;
