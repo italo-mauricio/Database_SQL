@@ -116,6 +116,25 @@ Resp:
     ORDER BY numero_letras DESC: essa cláusula ordena os resultados em ordem decrescente pelo número de letras do nome.
 
 
+9) Exiba a admissão e o dia (segunda, terça, quarta, ...) em que o funcionário começou a trabalhar. Ordene pelo dia da semana.
+
+Resp:
+
+    SELECT dtcontratacao, to_char(dtcontratacao, 'Day') AS dia_semana
+    FROM funcionario,
+    ORDER BY dia_semana;
+
+    to_char(data_admissao, 'Day'): essa função formata a data de admissão como uma string que inclui o dia da semana (segunda-feira, terça-feira, etc.).
+    ORDER BY dia_semana: essa cláusula ordena os resultados pelo dia da semana, em ordem crescente.
+
+output:
+
+    dtcontratacao               dia_semana
+
+    2021-06-11                   Friday
+    2021-01-11                   Monday
+
+
 
 
 
