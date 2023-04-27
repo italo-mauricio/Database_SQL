@@ -233,3 +233,14 @@ Este código irá retornar:
 Neste exemplo, a expressão "CASE WHEN" avalia a condição "preco > 100". Se essa condição for verdadeira, a expressão retornará "caro", caso contrário, ela retornará "barato". O resultado final será uma tabela que inclui o nome do produto, o preço e a classificação (caro ou barato) de cada produto.
 
 A cláusula "CASE WHEN" também pode ser usada com várias condições, utilizando várias instruções "WHEN" seguidas por uma instrução "ELSE". Além disso, a cláusula pode ser aninhada dentro de outras cláusulas "CASE WHEN" para permitir uma maior flexibilidade na construção de consultas SQL.
+
+
+                Funções de grupo mais comuns 
+
+● AVG(coluna) – valor médio
+● COUNT(*)
+● MAX(coluna) – valor máximo
+● MIN(coluna) – valor mínimo
+● STDDEV(coluna) – desvio padrão
+● SUM(coluna) – soma de todos os valores
+● VARIANCE(coluna) – variação da coluna
