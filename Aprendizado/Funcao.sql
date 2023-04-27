@@ -201,6 +201,7 @@ Este código irá retornar:
 Observe que a função COALESCE retorna o primeiro valor não nulo da lista de valores, então se o apelido de um cliente for nulo, ela retorna o nome em seguida e, por fim, uma string vazia.
 
 
+
 CASE WHEN
 
 A função CASE WHEN é utilizada para avaliar uma ou mais expressões condicionais e retornar um valor correspondente quando a condição é verdadeira. Por exemplo, considere a tabela "pedidos" com as colunas "id_pedido", "data_pedido" e "valor":
@@ -228,3 +229,7 @@ Este código irá retornar:
 |-----------|--------------|--------|------------------|
 | 1         | 2022-01-01   | 100.00 | Antigo           |
 
+       
+Neste exemplo, a expressão "CASE WHEN" avalia a condição "preco > 100". Se essa condição for verdadeira, a expressão retornará "caro", caso contrário, ela retornará "barato". O resultado final será uma tabela que inclui o nome do produto, o preço e a classificação (caro ou barato) de cada produto.
+
+A cláusula "CASE WHEN" também pode ser usada com várias condições, utilizando várias instruções "WHEN" seguidas por uma instrução "ELSE". Além disso, a cláusula pode ser aninhada dentro de outras cláusulas "CASE WHEN" para permitir uma maior flexibilidade na construção de consultas SQL.
