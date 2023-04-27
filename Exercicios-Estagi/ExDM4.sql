@@ -39,7 +39,62 @@ output:
     2           italo           10000               11500
     3           pedro           5000                5750
 
-4) Adicione a consulta anterior uma coluna que conterá o salário novo menos o salário antigo
+4) Adicione a consulta anterior uma coluna que conterá o salário novo menos o salário antigo:
+
+Resp:
+
+    SELECT cod, nome, salarioatual, 
+    CAST(salarioatual * 1.15 AS INTEGER) AS novo_salario,
+    CAST(salarioatual * 0.15 AS INTEGER) AS aumento,
+    CAST(salarioatual * 1.15 - salarioatual AS INTEGER) AS diferenca
+    FROM funcionario;
+
+output:
+
+    cod       nome     salarioatual     novo_salario      aumento      diferença 
+    
+    1         João         3000             3450            450          450
+
+5) Exiba o nome do funcionário, a data de admissão e a data de efetivação, que é seis meses após a admissão.
+
+Resp:
+
+    SELECT nome, dtcontratacao,
+    DATE_TRUNC('month', dtcontratacao) + INTERVAL '6 month' 
+        + (dtcontratacao - DATE_TRUNC('month', dtcontratacao)) AS data_efetivacao
+    FROM funcionario;
+
+output:
+
+    nome                dtcontratacao           data_efetivacao
+
+    joao                 2022-01-01                2022-07-01
+    italo                2022-05-02                2022-11-02
+    pedro                2021-10-03                2022-04-03
+
+6) Para cada funcionário exiba o nome do mesmo e calcule o número de meses entre a hoje e a sua data de admissão. Ordene a consulta pelo número de meses. Arredonde para inteiro o número de meses. 
+
+Resp:
+
+    SELECT nome, 
+       ROUND(DATE_PART('year', AGE(NOW(), dtcontratacao)) * 12 
+             + DATE_PART('month', AGE(NOW(), dtcontratacao))) AS meses_trabalhados
+    FROM funcionario
+    ORDER BY meses_trabalhados;
+
+output:
+
+    nome                meses_trabalhados
+
+    italo                   11
+    pablo                   14
+    amanda                  18
+
+
+
+
+
+
 
 
 
