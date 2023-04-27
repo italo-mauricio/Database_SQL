@@ -197,6 +197,34 @@ Este código irá retornar:
                             | Carlos Souza          |
                             | João Santos Pereira   |
                             | Maria Oliveira        |
-                            
+
 Observe que a função COALESCE retorna o primeiro valor não nulo da lista de valores, então se o apelido de um cliente for nulo, ela retorna o nome em seguida e, por fim, uma string vazia.
+
+
+CASE WHEN
+
+A função CASE WHEN é utilizada para avaliar uma ou mais expressões condicionais e retornar um valor correspondente quando a condição é verdadeira. Por exemplo, considere a tabela "pedidos" com as colunas "id_pedido", "data_pedido" e "valor":
+
+
+                        | id_pedido | data_pedido  | valor |
+                        |-----------|--------------|--------|
+                        | 1         | 2022-01-01   | 100.00 |
+                        | 2         | 2022-02-15   | 50.00  |
+                        | 3         | 2022-03-05   | 200.00 |
+                        | 4         | 2022-04-10   | 75.00  |
+Podemos usar a função CASE WHEN para classificar os pedidos em "recentes" ou "antigos", com base na data do pedido:
+
+
+
+                        SELECT id_pedido, data_pedido, valor,
+                        CASE WHEN data_pedido >= '2022-03-01' THEN 'Recente'
+                            ELSE 'Antigo'
+                        END AS classificacao
+                        FROM pedidos;
+
+Este código irá retornar:
+
+| id_pedido | data_pedido  | valor | classificacao |
+|-----------|--------------|--------|------------------|
+| 1         | 2022-01-01   | 100.00 | Antigo           |
 
