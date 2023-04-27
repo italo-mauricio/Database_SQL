@@ -90,6 +90,19 @@ output:
     pablo                   14
     amanda                  18
 
+7) Crie uma consulta que produza a seguinte frase: O <nomefunc> recebe R$ <salario> mensalmente, mas deseja receber <salário * 4>. Coloque um label de “sonho” a coluna.
+
+Resp:
+
+    SELECT CONCAT('O ', nome, ' recebe R$ '	, salarioatual, ' mensalmente, mas tenho o sonho de receber ', salarioatual*4, '.00. ') AS sonho
+    FROM funcionario;
+
+output:
+
+    O italo recebe R$ 10.000 mensalmente mas sonha em receber 40.000
+
+    
+
 
 
 
