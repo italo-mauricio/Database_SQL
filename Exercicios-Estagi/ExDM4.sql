@@ -204,6 +204,40 @@ output:
 
     240.000             3.000           28.000          376.000
 
+14) Arredonde os resultados da consulta anterior para números inteiros.
+
+Resp:
+
+    SELECT CAST(MAX(salarioatual) AS INTEGER) AS maior_salario, 
+       CAST(MIN(salarioatual) AS INTEGER) AS menor_salario, 
+       CAST(AVG(salarioatual) AS INTEGER) AS medio_salario, 
+       CAST(SUM(salarioatual) AS INTEGER) AS soma_salario
+    FROM funcionario f;
+
+    outro método para versão mais recente do postgresql:
+
+    SELECT MAX(salarioatual)::INTEGER AS maior_salario, 
+       MIN(salarioatual)::INTEGER AS menor_salario, 
+       AVG(salarioatual)::INTEGER AS medio_salario, 
+       SUM(salarioatual)::INTEGER AS soma_salario
+    FROM funcionario f;
+
+
+15) Selecione o número de funcionários totais e o número de funcionários que possuem gerentes.
+
+Resp:
+        select 
+            COUNT(*) as total_funcionarios,
+            COUNT(distinct codgerente) as total_gerentes
+        from funcionario f;
+
+        Nesta consulta, a função COUNT(*) é utilizada para contar o número total de funcionários na tabela "funcionario", e a função COUNT(DISTINCT gerente) é utilizada para contar o número de funcionários que possuem um gerente. A cláusula DISTINCT é utilizada para evitar que um mesmo gerente seja contado mais de uma vez, caso tenha mais de um funcionário sob sua supervisão.
+
+output:
+
+    total_funcionarios           total_gerentes
+        13                           11
+
 
 
 
