@@ -134,8 +134,26 @@ output:
     2021-06-11                   Friday
     2021-01-11                   Monday
 
+10) Faça uma consulta pelo nome do aluno e o telefone, informando “Sem telefone”, para os alunos em que o telefone é null.
 
 
+Resp: 
+
+    SELECT nome, CONCAT('Sem telefone', telefone) AS telefone
+    FROM aluno
+    WHERE telefone IS NULL;
+
+    A cláusula SELECT seleciona as colunas "nome" e "telefone".
+    A função CONCAT é usada para concatenar a string "Sem telefone" com o valor nulo da coluna "telefone". Isso irá resultar na exibição da mensagem "Sem telefone" para as linhas em que o telefone é nulo.
+    A cláusula FROM especifica a tabela "alunos".
+    A cláusula WHERE filtra apenas as linhas em que a coluna "telefone" é nula.
+
+output:
+
+    nome                telefone 
+
+    PEDRO MENEZES       Sem telefone
+    
 
 
 
