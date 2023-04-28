@@ -153,8 +153,22 @@ output:
     nome                telefone 
 
     PEDRO MENEZES       Sem telefone
-    
 
+11) Faça uma consulta que exiba o nome do funcionário e a quantia de salário através de asteriscos. Cada asterisco representa R$ 100,00. Coloque em ordem decrescente de salário.
+    
+Resp:
+
+    SELECT nome, REPEAT('*', CAST(salarioatual/100 AS INTEGER)) as salario_asteriscos
+    FROM funcionario
+    ORDER BY salarioatual DESC;
+
+    Nesta consulta, utilizamos a função CAST() para converter o resultado da divisão do salário por 100 (que é um valor numérico) em um valor inteiro. Em seguida, passamos esse valor para a função REPEAT() para repetir o caractere asterisco (*) a quantidade de vezes correspondente ao valor do salário dividido por 100. Os resultados são ordenados em ordem decrescente com base no salário.
+
+output:
+
+    nome                salario_asteriscos
+
+    João                ******************************     João ganha 3 mil reais
 
 
 
