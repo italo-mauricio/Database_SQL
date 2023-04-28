@@ -171,6 +171,42 @@ output:
     João                ******************************     João ganha 3 mil reais
 
 
+12) Exiba o nome do aluno e a faixa de idade dele. De acordo com a seguinte especificação.
+            0-18 = Categoria A
+            19-30 = Categoria B
+            31-61 = Categoria C
+            Maior 61 = Categoria D
+
+Resp: 
+
+        select nome,
+        case
+            when idade <= 18 then 'Categoria A'
+            when idade <= 30 then 'Categoria B'
+            when idade <= 61 then 'Categoria C'
+            else 'Categoria D'
+        end as faixa_etaria
+        from aluno;
+
+13) Exiba o maior salário, o médio, o menor e a soma de todos os salários de todos os funcionários.
+
+Resp:
+
+    select max(salarioatual) as maior_salario, min(salarioatual) as menor_salario,
+    avg(salarioatual) as medio_salario, sum(salarioatual) as soma_salario
+    from funcionario f;
+
+    Esta consulta irá selecionar as funções MAX, MIN, AVG e SUM da tabela "funcionarios" e renomeá-las para "maior_salario", "menor_salario", "media_salario" e "total_salario", respectivamente.
+
+output:
+
+    maior_salario    menor_salario   media_salario    soma_salario
+
+    240.000             3.000           28.000          376.000
+
+
+
+
 
 
 
