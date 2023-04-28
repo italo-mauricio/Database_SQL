@@ -260,9 +260,63 @@ output:
     Desenvolvedor Sênior       18.000       16.500      15.000      33.000 
 
 
+17) exiba o número de funcionários por cargo.
+
+Resp:
+
+        SELECT cargo, COUNT(cod) AS num_funcionarios
+        FROM funcionario
+        GROUP BY cargo;
+
+output:
+
+    cargo               num_funcionarios
+
+    Desenvolvedor Sênior        2
+    Analista Sênior             1
+    Suporte de TI               1
+
+
+18) Faça uma consulta que exiba o número do gerente e o menor pagamento salarial sob a supervisão deste gerente.
+
+Resp:
+
+    SELECT codgerente, MIN(salarioatual) as menor_salario
+    FROM funcionario
+    GROUP BY codgerente;
+
+
+output:
+    codgerente       menor_salario
+        G01	                3000
+        G09	                15000
+        G30	                24000
+        G04	                6000
+        G05	                7000
+        G08	                15000
+        G02	                5000
+        G06	                8000
+        G20	                240000
+        G10	                15000
+        G07	                10000
 
 
 
+19) Crie uma consulta que exiba o histórico do número de funcionários contratados por ano, mostrando apenas de 2005 em diante.
 
+Resp:
+
+    SELECT EXTRACT(YEAR FROM dtcontratacao) as ano_contratacao, COUNT(*) as num_contratacoes
+    FROM funcionario
+    WHERE EXTRACT(YEAR FROM dtcontratacao) >= 2005
+    GROUP BY EXTRACT(YEAR FROM dtcontratacao);
+
+    Nessa consulta, utilizamos a função EXTRACT() para extrair o ano da data_contratacao e a cláusula WHERE para filtrar apenas os funcionários contratados a partir de 2005. O resultado será uma tabela com duas colunas: ano_contratacao e num_contratacoes, onde cada linha representa um ano e o número de funcionários contratados nesse ano.
+
+output:
+    data_contratacao        num_contratacoes
+        2021	                   7
+        2022	                   4
+        2023	                   1
 
 
