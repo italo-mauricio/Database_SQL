@@ -238,6 +238,28 @@ output:
     total_funcionarios           total_gerentes
         13                           11
 
+16) Crie uma consulta para exibir o maior salário, o salário médio, o menor salário e a soma de todos os salários para cada cargo dos funcionários. Coloque label nas colunas como Máximo, Médio, Menor e Soma.
+
+Resp:
+
+    SELECT cargo, 
+    MAX(salarioatual) AS "Máximo", 
+    AVG(salarioatual) AS "Médio", 
+    MIN(salarioatual) AS "Menor", 
+    SUM(salarioatual) AS "Soma"
+    FROM funcionario
+    GROUP BY cargo;
+
+    Nesta consulta, a função MAX é utilizada para obter o maior salário de cada cargo, a função AVG é utilizada para obter o salário médio de cada cargo, a função MIN é utilizada para obter o menor salário de cada cargo e a função SUM é utilizada para obter a soma de todos os salários de cada cargo. A cláusula GROUP BY é utilizada para agrupar os resultados por cargo. Note que foram adicionados labels para cada coluna utilizando as aspas duplas.
+
+output:
+
+    cargo                      Máximo        Médio       Menor     Soma
+
+    Gerente Geral              24.000       24.000      24.000      24.000
+    Desenvolvedor Sênior       18.000       16.500      15.000      33.000 
+
+
 
 
 
