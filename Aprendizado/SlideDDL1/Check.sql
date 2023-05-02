@@ -33,3 +33,30 @@ CREATE TABLE FUNCIONARIO (
     FOREIGN KEY (CODGERENTE) REFERENCES FUNCIONARIO(COD),
     UNIQUE (RG),
     CHECK ( ATIVO = 'S' OR ATIVO = 'N'));
+
+                    Lembrando
+● Quando tentamos violar uma Restrição através dos comandos
+INSERT, DELETE ou UPDATE, o SGBD não irá realizar a
+operação e retornará uma mensagem de erro.
+
+CREATE TABLE departamento(
+    cod NUMERIC(6),
+    descricao VARCHAR(200) NOT NULL,
+    sigla VARCHAR(100),
+    PRIMARY KEY (cod));
+
+
+
+                Gerar Valores Automaticamente
+
+● Útil para usar em campos de chaves primarias (pk)
+● Duas formas no PostgreSQL :
+– Uso de Sequências (Sequence)
+– Tipo Serial na coluna
+
+create table Livro (
+    cod serial,
+    titulo varchar(100),
+    descricao varchar(300),
+    primary key(cod)
+    );
