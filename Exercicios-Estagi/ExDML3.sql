@@ -10,10 +10,12 @@ Resp:   select *
         from aluno
         where telefone is null;    verifico quais são null na tabela 
 
-        update aluno set telefone = '213232312'
+        update aluno
+        set telefone = '213232312'
         where telefone is null;    caso eu queria colocar um telefone em todos que são null eu uso esta linha
 
-        update aluno set telefone = '111111'
+        update aluno
+        set telefone = '111111'
         where matricula = 188988   caso eu queira troar especificamente o numero de alguem 
 
 2) Atualize os alunos, aumentando em um ano a idade de todos os alunos que nasceram depois de 01/01/1980.

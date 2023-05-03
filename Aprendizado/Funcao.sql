@@ -197,13 +197,23 @@ Este código irá retornar:
                             | Carlos Souza          |
                             | João Santos Pereira   |
                             | Maria Oliveira        |
-                            
+
 Observe que a função COALESCE retorna o primeiro valor não nulo da lista de valores, então se o apelido de um cliente for nulo, ela retorna o nome em seguida e, por fim, uma string vazia.
 
 
-A cláusula "CASE WHEN" em SQL é usada para avaliar uma expressão em uma condição e, em seguida, retornar um resultado baseado nessa avaliação.
 
-A sintaxe básica é a seguinte:
+CASE WHEN
+
+A função CASE WHEN é utilizada para avaliar uma ou mais expressões condicionais e retornar um valor correspondente quando a condição é verdadeira. Por exemplo, considere a tabela "pedidos" com as colunas "id_pedido", "data_pedido" e "valor":
+
+
+                        | id_pedido | data_pedido  | valor |
+                        |-----------|--------------|--------|
+                        | 1         | 2022-01-01   | 100.00 |
+                        | 2         | 2022-02-15   | 50.00  |
+                        | 3         | 2022-03-05   | 200.00 |
+                        | 4         | 2022-04-10   | 75.00  |
+Podemos usar a função CASE WHEN para classificar os pedidos em "recentes" ou "antigos", com base na data do pedido:
 
             CASE 
                 WHEN condição1 THEN resultado1 
@@ -211,7 +221,6 @@ A sintaxe básica é a seguinte:
                 ...
                 ELSE resultadoPadrao 
             END
-            
     Aqui está um exemplo simples: suponha que temos uma tabela de produtos com colunas para o nome do produto e o preço. Queremos criar uma nova coluna que indique se um produto é "caro" ou "barato", com base no preço. Podemos usar a cláusula "CASE WHEN" para fazer isso, como mostrado abaixo:
 
        
@@ -222,7 +231,172 @@ A sintaxe básica é a seguinte:
        END AS classificacao
        FROM produtos;
 
+       
+                        SELECT id_pedido, data_pedido, valor,
+                        CASE WHEN data_pedido >= '2022-03-01' THEN 'Recente'
+                            ELSE 'Antigo'
+                        END AS classificacao
+                        FROM pedidos;
+
+Este código irá retornar:
+
+| id_pedido | data_pedido  | valor | classificacao |
+|-----------|--------------|--------|------------------|
+| 1         | 2022-01-01   | 100.00 | Antigo           |
+       
 Neste exemplo, a expressão "CASE WHEN" avalia a condição "preco > 100". Se essa condição for verdadeira, a expressão retornará "caro", caso contrário, ela retornará "barato". O resultado final será uma tabela que inclui o nome do produto, o preço e a classificação (caro ou barato) de cada produto.
 
 A cláusula "CASE WHEN" também pode ser usada com várias condições, utilizando várias instruções "WHEN" seguidas por uma instrução "ELSE". Além disso, a cláusula pode ser aninhada dentro de outras cláusulas "CASE WHEN" para permitir uma maior flexibilidade na construção de consultas SQL.
+
+
+                Funções de grupo mais comuns 
+
+● AVG(coluna) – valor médio
+● COUNT(*)
+● MAX(coluna) – valor máximo
+● MIN(coluna) – valor mínimo
+● STDDEV(coluna) – desvio padrão
+● SUM(coluna) – soma de todos os valores
+● VARIANCE(coluna) – variação da coluna
+
+
+                     Valores Nulos nas Funções de Grupo
+
+
+● As funções de Grupo descartam valores nulos (null).
+
+                    SELECT COUNT(*)
+                    FROM aluno;
+
+                    SELECT COUNT(telefone)
+                    FROM aluno;
+
+
+
+                        Cuidado
+
+
+● Não é possível solicitar na projeção da mesma consulta
+informações de várias linhas misturadas com funções de
+Grupo:
+
+            SELECT matricula,nome,idade,MAX(idade)    X isso aqui é errado
+            ROM aluno;
+
+● Mas é permitido utilizar na projeção diversas funções de
+grupo e funções de linha sobre funções de grupo.
+
+            SELECT MAX(idade),MIN(idade),ROUND(AVG(idade))
+            FROM aluno;
+
+
+                            GROUP BY
+
+        Usando GROUP BY dividimos as linhas retornadas na
+        consulta/tabela em grupos menores ou subgrupos.
+        
+        ● Podemos utilizar as Funções de Grupo para retornar
+        informações sumárias para cada subgrupo.
+
+        ● É possível agrupar os resultados em vários subgrupos.
+        
+        ● Na tabela abaixo, queremos obter os maiores salários, por cargo dentro de cada departamento.
+
+        Exemplo: 
+                SELECT cargo,coddepartamento,MAX(salario)
+                FROM funcionario
+                GROUP BY coddepartamento,cargo
+                ORDER BY 2;
+
+        output:
+                cargo         coddepartamento      max 
+
+                gerente         10                4000
+                supervisor      10                3400
+                gerente         20                4500
+                supervisor      20                1500
+
+
+        
+        ● SELECT [DISTINCT] {*,coluna, expr [as apelido]}
+          FROM nomeTabela
+          [WHERE condição(ções)]
+          [GROUP BY {coluna, expr, ...}]
+          [ORDER BY {coluna, expr, ...} [ASC|DESC]];
+
+
+          Como obter a maior idade dos aluno agrupado por cidade?
+
+
+                SELECT MAX(idade),cidade
+                FROM aluno
+                GROUP BY cidade;
+
+
+            SELECT MAX(idade),upper(cidade)
+            FROM aluno
+            GROUP BY upper(cidade);
+
+Internamente o SGBD
+
+● agrupa primeiro
+● aplica as funções de grupo
+● entrega o resultado;
+
+
+
+                            Cuidado
+
+    ● Qualquer coluna ou expressão na lista SELECT que não seja
+    uma função de grupo deve estar na cláusula GROUP BY.
+
+        SELECT cidade,MIN(idade)
+        FROM aluno;    X errado 
+
+        SELECT cidade,MIN(idade)
+        FROM aluno
+        GROUP BY cidade;  V correto 
+
+
+                Misturando
+
+    SELECT UPPER(cidade) as Cidade,MAX(idade) as Idade
+    FROM aluno
+    WHERE telefone is NOT null
+    GROUP BY UPPER(cidade);
+
+
+
+Mas e se quisermos restringir os grupos??
+Por exemplo, queremos só os grupos, onde a idade é maior ou igual à 18.
+
+                        Cláusula HAVING
+
+        SELECT [DISTINCT] {*,nomeColuna [as apelido]}
+        FROM nomeTabela
+        [WHERE condição(ções)]
+        [GROUP BY {expr,expr, ...}]
+        [HAVING condições do grupo]
+        [ORDER BY {coluna, expr, ...} [ASC|DESC]];
+
+● HAVING consegue restringir grupos
+– As linhas são selecionadas
+– A função de grupo é aplicada
+– Os grupos que forem aprovados pela cláusula HAVING são exibidos.
+
+Exemplo: 
+
+    SELECT UPPER(cidade) as Cidade,MAX(idade) as Idade
+    FROM aluno
+    WHERE telefone is NOT null
+    GROUP BY UPPER(cidade)
+    HAVING MAX(idade)>=18
+    ORDER BY 2 DESC;
+
+    output:
+
+        cidade              idade
+
+        CRISTAL             65
+        BEGÉ                33
 
