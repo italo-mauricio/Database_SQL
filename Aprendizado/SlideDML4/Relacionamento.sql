@@ -99,7 +99,61 @@ Ex.
 
 
 
-● Junção Externa
+● Junção Externa:
+
+            Junção Externa (Outer Join)
+    - A Junção Idêntica descarta as linhas que não possuem
+    correspondência direta entre as tabelas.
+    - A Junção Idêntica descarta as linhas que não possuem
+    correspondência direta entre as tabelas.
+    - A Junção Idêntica descarta as linhas que não possuem
+    correspondência direta entre as tabelas.
+
+
+    Mas as vezes precisamos de todas as informações de uma
+    determinada tabela, mesmo quando não a ligação direta.
+    Por exemplo:
+        – Um select que apresente o nome do departamento e o nome do funcionário
+        ligado ao seu departamento.
+
+        ● Podemos querer obter todos os departamentos, mesmo quando não
+        possuem funcionários;
+        ● Podemos querer obter todos os funcionários, mesmo os que não estão
+        em nenhum departamento.
+        A junção idêntica descarta os departamentos sem funcionários e os
+        funcionários sem departamento.
+
+        ●
+Dividido em:
+
+    LEFT JOIN
+    RIGHT JOIN
+
+    SELECT [DISTINCT] {*,nomeColuna [as apelido]}
+    FROM tabela1 LEFT JOIN tabela2 ON tabela1.colunaX=tabela2.colunaY
+    [WHERE condição(ções)]
+    [GROUP BY {expr,expr, ...}]
+    [HAVING condições do grupo]
+    [ORDER BY {coluna, expr, ...} [ASC|DESC]];
+
+    SELECT [DISTINCT] {*,nomeColuna [as apelido]}
+    FROM tabela1 RIGHT JOIN tabela2 ON tabela1.colunaX=tabela2.colunaY
+    [WHERE condição(ções)]
+    [GROUP BY {expr,expr, ...}]
+    [HAVING condições do grupo]
+    [ORDER BY {coluna, expr, ...} [ASC|DESC]];
+
+
+    Exemplo:
+
+    SELECT d.descricao,f.nome
+    FROM departamento AS d LEFT JOIN funcionario AS f ON d.cod = f.coddepartamento;
+    
+    Exemplo:
+
+    SELECT d.descricao,f.nome
+    FROM departamento AS d RIGHT JOIN funcionario AS f ON d.cod = f.coddepartamento;
+
 ● Autojunção
 
 
