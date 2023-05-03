@@ -128,3 +128,11 @@ Junção de tabelas exemplo:
     201.510.531        ITALO MAURICIO       124             Matemática 
 
 
+    caso eu queria com mais uma condição de carga horario:
+
+    SELECT *
+    FROM aluno INNER JOIN aluno_disciplina ON aluno.matricula = aluno_disciplina.matricula
+    INNER JOIN disciplina ON aluno_disciplina.coddisciplina = disciplina.cod
+    WHERE disciplina.cargahoraria=60;
+
+    vai me retonar os alunos acima, porém somente com carga horario = a 60.
