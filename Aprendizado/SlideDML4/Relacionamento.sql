@@ -97,6 +97,20 @@ Ex.
     - Quando nenhuma coluna da tabela X correspondem diretamente a uma coluna da tabela Y
     - Por exemplo, se quisermos categorizar os salários dos Funcionarios dentro de Categorias Salariais (Faixa).
 
+    CREATE TABLE CATEGORIASALARIO (
+        COD NUMERIC(3),
+        MENOR
+        NUMERIC(12,2),
+        MAIOR
+        NUMERIC(12,2),
+        CATEGORIA CHAR(1),
+        PRIMARY KEY (COD));
+
+
+        SELECT f.nome,f.salario,cs.categoria
+        FROM funcionario AS f, categoriasalario AS cs
+        WHERE f.salario BETWEEN cs.menor AND cs.maior;
+
 
 
 ● Junção Externa:
@@ -154,7 +168,18 @@ Dividido em:
     SELECT d.descricao,f.nome
     FROM departamento AS d RIGHT JOIN funcionario AS f ON d.cod = f.coddepartamento;
 
-● Autojunção
+
+
+● Autojunção ou auto-relacionamento
+
+    - Algumas vezes é necessário unir a tabela a ela mesmo.
+    - Por exemplo:
+    – O tabela Funcionario possui uma coluna com a informação do código do Gerente.
+
+    – Queremos uma consulta que obtenha a seguinte frase:
+       fulanodetal trabalha sobre a gerência de fulanodetal
+    – As informações necessárias estão todas na tabela Funcionário. Mas é necessário
+    relacionar a tabela funcionario com ela mesma!
 
 
 
