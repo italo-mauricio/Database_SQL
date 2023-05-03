@@ -104,3 +104,27 @@ Ex.
 
 
 
+
+Junção de tabelas exemplo:
+
+    Neste exemplo, eu fiz uma tabela aluno com matricula sendo a primary key, e fiz uma tabela com discilina sendo cod como chave primary. Pois bem, logo após criei uma terceira tabela chamda aluno_disciplina com matricula e coddisciplina sendo ambas primary keys. Segue abaixo a forma como eu vinculei ambas.
+
+    insert into aluno_disciplina (matricula, coddisciplina)
+    values('201510501', '124');  Aqui eu preencho a terceira tabela com a matricula que eu já sei da tablea aluno, e o código da disciplina.
+
+
+    SELECT a.matricula, a.nome AS nome_aluno, d.cod, d.nome AS nome_disciplina
+    FROM aluno a
+    INNER JOIN aluno_disciplina ad ON a.matricula = ad.matricula
+    INNER JOIN disciplina d ON ad.coddisciplina = d.cod;
+
+    por fim, utilizando INNER JOIN eu consigo vincular as duas tabelas com a terceira, gerando esta saida:
+
+    output:
+
+    matricula           nome_aluno          cod             nome_disciplina
+
+    201.618.361        KAREN REDIESS        123             Algoritmos
+    201.510.531        ITALO MAURICIO       124             Matemática 
+
+
