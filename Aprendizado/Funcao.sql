@@ -211,6 +211,7 @@ A sintaxe básica é a seguinte:
                 ...
                 ELSE resultadoPadrao 
             END
+            
     Aqui está um exemplo simples: suponha que temos uma tabela de produtos com colunas para o nome do produto e o preço. Queremos criar uma nova coluna que indique se um produto é "caro" ou "barato", com base no preço. Podemos usar a cláusula "CASE WHEN" para fazer isso, como mostrado abaixo:
 
        
@@ -220,7 +221,7 @@ A sintaxe básica é a seguinte:
             ELSE 'barato' 
        END AS classificacao
        FROM produtos;
-       
+
 Neste exemplo, a expressão "CASE WHEN" avalia a condição "preco > 100". Se essa condição for verdadeira, a expressão retornará "caro", caso contrário, ela retornará "barato". O resultado final será uma tabela que inclui o nome do produto, o preço e a classificação (caro ou barato) de cada produto.
 
 A cláusula "CASE WHEN" também pode ser usada com várias condições, utilizando várias instruções "WHEN" seguidas por uma instrução "ELSE". Além disso, a cláusula pode ser aninhada dentro de outras cláusulas "CASE WHEN" para permitir uma maior flexibilidade na construção de consultas SQL.
