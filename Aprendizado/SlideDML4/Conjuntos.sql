@@ -79,22 +79,76 @@ FROM conjunto2;     ->  cod  valor
 
 
 
-                        
+                 INTERSECT
+
+● Retorna apenas os elementos idênticos       
+
+
+conjunto1:
+    cod         valor 
+    1            a 
+    3            b 
+
+conjunto2: 
+    código      descrição 
+    12           a 
+    1            c 
+    5            d  
 
 SELECT valor
 FROM conjunto1
-UNION
+INTERSECT
 SELECT descricao
-FROM conjunto2;
-Banco de Dados I- ENGC/UCPel - Prof. Luciano E. Mertins
-SELECT valor
-FROM conjunto1
-UNION ALL
-SELECT descricao
-FROM conjunto2;
+FROM conjunto2;   ->   valor 
+                        a 
+
 SELECT cod,valor
 FROM conjunto1
-UNION
+INTERSECT
 SELECT codigo,descricao
-FROM conjunto2;
-22
+FROM conjunto2;   ->   vazio 
+
+
+                Except
+
+- Elimina do primeiro conjunto, os valores também existentes no
+segundo conjunto.
+
+
+conjunto1:
+    cod         valor 
+    1            a 
+    3            b 
+    6            d 
+    8            c 
+    9            e 
+
+
+conjunto2: 
+    código      descrição 
+    12           a 
+    1            c 
+    5            d  
+
+SELECT valor
+FROM conjunto1
+EXCEPT
+SELECT descricao
+FROM conjunto2;  ->  valor 
+                       c 
+                       e 
+
+SELECT cod,valor
+FROM conjunto1
+EXCEPT
+SELECT codigo,descricao
+FROM conjunto2;  ->  cod     valor      
+                      1       a  
+                      3       b 
+                      6       d 
+                      8       c 
+                      9       e 
+                        
+
+
+
