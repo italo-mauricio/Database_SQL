@@ -99,10 +99,8 @@ Ex.
 
     CREATE TABLE CATEGORIASALARIO (
         COD NUMERIC(3),
-        MENOR
-        NUMERIC(12,2),
-        MAIOR
-        NUMERIC(12,2),
+        MENOR NUMERIC(12,2),
+        MAIOR NUMERIC(12,2),
         CATEGORIA CHAR(1),
         PRIMARY KEY (COD));
 
@@ -180,6 +178,9 @@ Dividido em:
        fulanodetal trabalha sobre a gerência de fulanodetal
     – As informações necessárias estão todas na tabela Funcionário. Mas é necessário
     relacionar a tabela funcionario com ela mesma!
+
+    SELECT func.nome ||' trabalha sobre a gerência de ' || ger.nome AS FRASE
+    FROM funcionario AS func INNER JOIN funcionario AS ger ON func.codgerente = ger.cod;
 
 
 
