@@ -84,6 +84,14 @@ Ex.
     ORDER BY d.nome;
 
 
+    Este exemplo abaixo eu consigo pegar informações de duas tabelas que estão ligadas por um código:
+
+    SELECT f.nome, f.salarioatual, d.descricao 
+    FROM funcionario f 
+    INNER JOIN departamento d ON f.cod = d.cod 
+    WHERE f.cod = '8';
+
+
 ● Junção Não-Idêntica:
 
     - Quando nenhuma coluna da tabela X correspondem diretamente a uma coluna da tabela Y
