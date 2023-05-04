@@ -154,6 +154,21 @@ Resp:
     LEFT JOIN aluno_disciplina ad ON d.cod = ad.coddisciplina
     GROUP BY d.nome;
 
+    SELECT d.nome AS disciplina, a.nome AS aluno
+    FROM disciplina d
+    LEFT JOIN aluno_disciplina ad ON d.cod = ad.coddisciplina
+    LEFT JOIN aluno a ON ad.matricula = a.matricula
+    ORDER BY d.nome;
+
+    O primeiro código é uma consulta SQL que retorna o nome de cada disciplina e o número de alunos matriculados em cada uma delas. Para isso, é utilizado um JOIN entre as tabelas "disciplina" e "aluno_disciplina" para relacionar as disciplinas com as matrículas dos alunos matriculados, e a função COUNT é usada para contar o número de alunos matriculados em cada disciplina. A cláusula GROUP BY é utilizada para agrupar os resultados pelo nome da disciplina. O resultado dessa consulta é uma tabela com duas colunas: "nome" (nome da disciplina) e "num_alunos" (número de alunos matriculados).
+
+    Já o segundo código é uma consulta SQL que retorna o nome de cada disciplina e o nome de cada aluno matriculado nessa disciplina. Para isso, é utilizado um JOIN entre as tabelas "disciplina", "aluno_disciplina" e "aluno" para relacionar as disciplinas com as matrículas dos alunos matriculados e seus respectivos nomes. A cláusula LEFT JOIN é utilizada para garantir que todas as disciplinas sejam exibidas, mesmo aquelas sem alunos matriculados. A cláusula ORDER BY é utilizada para ordenar os resultados pelo nome da disciplina. O resultado dessa consulta é uma tabela com duas colunas: "disciplina" (nome da disciplina) e "aluno" (nome do aluno matriculado nessa disciplina).
+
+    Espero ter ajudado a entender melhor os códigos!
+
+
+
+
 
 
     
