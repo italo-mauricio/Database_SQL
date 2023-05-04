@@ -128,6 +128,21 @@ Resp:
 
     O comando GROUP BY é usado para agrupar os resultados por "salarioatual" e "faixa_salarial", permitindo que a função COUNT() e string_agg() sejam aplicadas a cada grupo. O comando COUNT() retorna o número de funcionários em cada grupo, enquanto a função string_agg() concatena os nomes dos funcionários em uma string separada por vírgula
 
+
+9) Crie uma tabela faixaNivel, onde os alunos com idade de 15 à 20 são nível A, 21 à 25 nível B, 25 à 30 nível C e acima nível D. Faça uma consulta informando o nome do aluno e o nível em que ele se encontra.
+
+Resp:
+
+    SELECT nome, 
+       CASE 
+           WHEN idade BETWEEN 15 AND 20 THEN 'Nível A'
+           WHEN idade BETWEEN 21 AND 25 THEN 'Nível B'
+           WHEN idade BETWEEN 26 AND 30 THEN 'Nível C'
+           ELSE 'Nível D'
+       END as faixa_nivel
+    FROM aluno;
+
+    
     
 
     
