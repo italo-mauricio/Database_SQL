@@ -142,7 +142,20 @@ Resp:
        END as faixa_nivel
     FROM aluno;
 
-    
+
+
+10) Faça uma consulta para retornar todos os nomes de disciplinas e o número de alunos matriculados. Lembrando que se a disciplina não possuir aluno, deve informar 0 (zero). 
+
+
+Resp: 
+
+    SELECT d.nome, COUNT(ad.matricula) AS num_alunos
+    FROM disciplina d
+    LEFT JOIN aluno_disciplina ad ON d.cod = ad.coddisciplina
+    GROUP BY d.nome;
+
+
+
     
 
     
