@@ -58,6 +58,48 @@ Resp:
 
 Resp:
 
+    SELECT funcionario.nome, departamento.descricao, funcionario.salarioatual
+    FROM funcionario
+    INNER JOIN departamento ON funcionario.cod = departamento.cod
+    WHERE funcionario.cidade = 'Rio de Janeiro' AND funcionario.salarioatual > 1500
+
+    usando inner join mais a cláusula where eu consigo condicionar a procurar um funcionário no rio de janeiro que ganhe mais de 1500.
+
+6) Retorne o nome do aluno e a carga de horas total das disciplinas que ele esta matriculado. Ordene pelo nome do aluno.
+
+
+Resp:
+
+    SELECT aluno.nome, SUM(disciplina.cargahoraria) AS carga_horaria_total
+    FROM aluno
+    INNER JOIN aluno_disciplina ON aluno.matricula = aluno_disciplina.matricula
+    INNER JOIN disciplina ON aluno_disciplina.coddisciplina = disciplina.cod
+    GROUP BY aluno.nome
+    ORDER BY aluno.nome
+
+    Explicação:
+
+        SELECT: especifica as colunas que devem ser exibidas na consulta. Aqui, estamos selecionando o nome do aluno e a soma da carga horária das disciplinas em que ele está matriculado. Usamos a função SUM() para somar as cargas horárias das disciplinas correspondentes.
+        FROM: especifica as tabelas envolvidas na consulta. Aqui, estamos selecionando a tabela "aluno" e juntando-a com a tabela "aluno_disciplina" usando a cláusula INNER JOIN. Em seguida, estamos juntando a tabela "disciplina" com base no campo "cod_disciplina" presente na tabela "aluno_disciplina".
+        INNER JOIN: junta as tabelas com base nas chaves primárias e estrangeiras correspondentes.
+        GROUP BY: agrupa as linhas com base no nome do aluno, para que possamos calcular a soma da carga horária para cada aluno.
+        ORDER BY: ordena o resultado com base no nome do aluno em ordem alfabética.
+
+
+7) Crie uma consulta para exibir o nome do departamento, a sigla, o número de funcionários e o salário médio de todos os funcionários neste departamento.
+
+Resp:
+
+    SELECT departamento.descricao, departamento.sigla, COUNT(funcionario.cod) AS num_funcionarios, AVG(funcionario.salarioatual) AS salario_medio
+    FROM departamento
+    INNER JOIN funcionario ON departamento.cod = funcionario.cod
+    GROUP BY departamento.descricao, departamento.sigla
+
+
+
+
+
+8) Retorne o nome do aluno e a carga de horas total das disciplinas que ele esta matriculado. Ordene pelo nome do aluno.
     
 
     
