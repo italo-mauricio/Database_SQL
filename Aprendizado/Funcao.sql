@@ -215,8 +215,23 @@ A função CASE WHEN é utilizada para avaliar uma ou mais expressões condicion
                         | 4         | 2022-04-10   | 75.00  |
 Podemos usar a função CASE WHEN para classificar os pedidos em "recentes" ou "antigos", com base na data do pedido:
 
+            CASE 
+                WHEN condição1 THEN resultado1 
+                WHEN condição2 THEN resultado2 
+                ...
+                ELSE resultadoPadrao 
+            END
+    Aqui está um exemplo simples: suponha que temos uma tabela de produtos com colunas para o nome do produto e o preço. Queremos criar uma nova coluna que indique se um produto é "caro" ou "barato", com base no preço. Podemos usar a cláusula "CASE WHEN" para fazer isso, como mostrado abaixo:
 
+       
+       SELECT nome_produto, preco,
+       CASE 
+            WHEN preco > 100 THEN 'caro'
+            ELSE 'barato' 
+       END AS classificacao
+       FROM produtos;
 
+       
                         SELECT id_pedido, data_pedido, valor,
                         CASE WHEN data_pedido >= '2022-03-01' THEN 'Recente'
                             ELSE 'Antigo'
@@ -228,7 +243,6 @@ Este código irá retornar:
 | id_pedido | data_pedido  | valor | classificacao |
 |-----------|--------------|--------|------------------|
 | 1         | 2022-01-01   | 100.00 | Antigo           |
-
        
 Neste exemplo, a expressão "CASE WHEN" avalia a condição "preco > 100". Se essa condição for verdadeira, a expressão retornará "caro", caso contrário, ela retornará "barato". O resultado final será uma tabela que inclui o nome do produto, o preço e a classificação (caro ou barato) de cada produto.
 
