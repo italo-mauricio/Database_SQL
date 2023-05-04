@@ -100,7 +100,34 @@ Resp:
 
 
 
-8) Retorne o nome do aluno e a carga de horas total das disciplinas que ele esta matriculado. Ordene pelo nome do aluno.
+8) Monte uma consulta que informe a faixa salarial dos funcionários, de acordo com a tabela do slide 4. Em seguida faça um select com o número de funcionários por faixa salarial
+
+Resp:
+
+    SELECT salarioatual, COUNT(*) as num_funcionarios, string_agg(nome, ', ') as funcionarios
+    FROM (
+    SELECT salarioatual,
+        CASE
+        WHEN salarioatual < 1000 THEN 'Até 1000'
+        WHEN salarioatual BETWEEN 1000 AND 2000 THEN '1000-2000'
+        WHEN salarioatual BETWEEN 2000 AND 3000 THEN '2000-3000'
+        ELSE 'Acima de 3000'
+        END as faixa_salarial,
+        nome
+    FROM funcionario
+    ) as subquery
+    GROUP BY salarioatual, faixa_salarial;
+
+    Explicação:
+
+    Esse código é uma consulta em SQL que utiliza uma subconsulta para agrupar os funcionários de uma tabela chamada "funcionario" de acordo com o salário atual e faixa salarial, e retorna o número de funcionários em cada faixa salarial e salário atual, juntamente com o nome dos funcionários correspondentes.
+
+    O comando SELECT é usado para selecionar as colunas a serem exibidas na consulta. Nesse caso, a consulta retorna três colunas: "salarioatual", "num_funcionarios" e "funcionarios".
+
+    A subconsulta é usada para agrupar os dados por faixa salarial e nome dos funcionários. Ela utiliza o comando CASE para classificar os funcionários em faixas salariais específicas e inclui a coluna "nome" para exibir os nomes dos funcionários correspondentes.
+
+    O comando GROUP BY é usado para agrupar os resultados por "salarioatual" e "faixa_salarial", permitindo que a função COUNT() e string_agg() sejam aplicadas a cada grupo. O comando COUNT() retorna o número de funcionários em cada grupo, enquanto a função string_agg() concatena os nomes dos funcionários em uma string separada por vírgula
+
     
 
     
