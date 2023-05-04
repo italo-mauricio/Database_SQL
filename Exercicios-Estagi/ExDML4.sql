@@ -96,6 +96,7 @@ Resp:
     GROUP BY departamento.descricao, departamento.sigla
 
 
+    Aqui estamos utilizando o COUNT para contar os funcionários, e o AVG para tirar a média salarial, depois utilizamos os inner join para juntar as tabelas departamento e funcionário através deste caso da chave primária, e depois agrupamos por departamento e sigla.
 
 
 
