@@ -42,4 +42,22 @@ Resp:
 
     Usando o count eu consigo contar quantos alunos tem, que na minha tabela atual são 52 alunos ou 13 por disciplina.
 
+
+4) Mostre o nome do funcionário e o nome do departamento dos funcionários que possuem um A em seus nomes.
+
+Resp:
+
+    select f.nome, d.descricao
+    from funcionario f 
+    inner join departamento d on f.cod = d.cod 
+    where f.nome like '%A%'
+
+    aqui eu vou usar novamente o inner join para pegar o nome e o departamento do funcionário, porém com os que tiverem A no nome. 
+
+5) Faça uma consulta que retorne todos os funcionários que trabalham em departamentos situados no Rio de Janeiro e que o salario seja maior que R$ 1500,00.
+
+Resp:
+
+    
+
     
