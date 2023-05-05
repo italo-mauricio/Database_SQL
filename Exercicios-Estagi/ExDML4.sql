@@ -166,6 +166,22 @@ Resp:
 
     Espero ter ajudado a entender melhor os códigos!
 
+11) Faça uma consulta para retornar o nome do aluno e a disciplina matriculada. Todos os alunos devem aparecer, mesmo se não estiver matriculado em nenhuma disciplina.
+
+Resp:
+
+    SELECT aluno.nome, disciplina.nome AS disciplina_matriculada
+    FROM aluno
+    LEFT JOIN aluno_disciplina ON aluno.matricula = aluno_disciplina.matricula
+    LEFT JOIN disciplina ON aluno_disciplina.coddisciplina = disciplina.cod;
+
+    Explicação:
+
+    Nesta consulta, a tabela "aluno" representa a lista de todos os alunos, a tabela "disciplina" representa a lista de todas as disciplinas disponíveis, e a tabela "aluno_disciplina" representa a lista de matrículas de alunos em disciplinas. A instrução LEFT JOIN é usada para juntar essas tabelas, garantindo que todos os alunos sejam exibidos, mesmo que não estejam matriculados em nenhuma disciplina.
+
+    A consulta seleciona o nome do aluno e o nome da disciplina matriculada, e utiliza um alias ("disciplina_matriculada") para o nome da coluna da tabela "disciplina". O resultado da consulta será uma lista de todos os alunos e suas disciplinas matriculadas, ou uma linha em branco para aqueles que não estão matriculados em nenhuma disciplina.
+
+12) Faça retornar o nome do gerente e o nome do funcionário O funcionario que não possuir gerente deve aparecer também.
 
 
 
