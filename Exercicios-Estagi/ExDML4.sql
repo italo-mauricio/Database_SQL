@@ -220,6 +220,35 @@ Resp:
     SELECT nome
     FROM funcionario f ;
 
+14) Faça uma consulta que retorne os nomes dos funcionários e os nomes dos alunos, ordenados de forma decrescente. Os nomes duplicados devem aparecer.
+
+Resp:
+
+    SELECT nome
+    FROM (
+    SELECT nome FROM funcionario
+    UNION ALL
+    SELECT nome FROM aluno
+    ) AS nomes
+    ORDER BY nome DESC
+
+    Essa consulta usa o comando UNION ALL para combinar os resultados das duas consultas que selecionam os nomes dos funcionários e dos alunos. Em seguida, ordenamos os resultados pelo nome em ordem decrescente usando ORDER BY nome DESC.
+
+15) A mesma consulta acima, mas sem duplicar nomes.
+
+Resp:
+
+    SELECT DISTINCT nome
+    FROM (
+    SELECT TRIM(LOWER(nome)) AS nome FROM funcionario
+    UNION
+    SELECT TRIM(LOWER(nome)) AS nome FROM aluno
+    ) AS nomes
+    ORDER BY nome desc;
+
+    Nessa consulta, a função TRIM é usada para remover quaisquer espaços em branco no início ou no final do nome, e a função LOWER é usada para tornar os nomes em minúsculas. Em seguida, a cláusula DISTINCT é adicionada para remover quaisquer resultados duplicados.
+
+
 
 
 
