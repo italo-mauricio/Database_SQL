@@ -183,6 +183,43 @@ Resp:
 
 12) Faça retornar o nome do gerente e o nome do funcionário O funcionario que não possuir gerente deve aparecer também.
 
+Resp:
+
+    SELECT gerente.nome AS nome_gerente, funcionario.nome AS nome_funcionario
+    FROM funcionario
+    LEFT JOIN funcionario AS gerente ON funcionario.codgerente = funcionario.nome;
+
+
+    Aqui ele vai retornar a esquerda o nome do gerente, e a direita o nome do funcionário.
+
+13) Reproduza os selects dos slides 23,24 e 25
+
+Resp:
+
+    INTERSECT:
+
+    SELECT idade
+    FROM aluno
+    INTERSECT
+    SELECT matricula 
+    FROM aluno_disciplina ad;
+
+    EXCEPT:
+
+    SELECT nome
+    FROM aluno a 
+    EXCEPT
+    SELECT nome
+    FROM funcionario f ;
+
+    UNION:
+
+    SELECT nome
+    FROM aluno a 
+    union
+    SELECT nome
+    FROM funcionario f ;
+
 
 
 
