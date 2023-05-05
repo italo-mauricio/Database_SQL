@@ -249,8 +249,17 @@ Resp:
     Nessa consulta, a função TRIM é usada para remover quaisquer espaços em branco no início ou no final do nome, e a função LOWER é usada para tornar os nomes em minúsculas. Em seguida, a cláusula DISTINCT é adicionada para remover quaisquer resultados duplicados.
 
 
+16) Faça retornar na mesma coluna o nome do aluno e o nome da disciplina sem repetições de nomes.
 
+Resp:
 
+    SELECT DISTINCT a.nome AS nome_aluno, d.nome AS nome_disciplina
+    FROM aluno a
+    INNER JOIN aluno_disciplina ad ON a.matricula = ad.matricula
+    INNER JOIN disciplina d ON ad.coddisciplina = d.cod
+    ORDER BY a.nome;
+
+    Essa consulta seleciona o nome do aluno e o nome da disciplina da tabela "aluno" e "disciplina", respectivamente, e junta (join) as três tabelas pela tabela intermediária "aluno_disciplina", que relaciona as matrículas dos alunos aos códigos das disciplinas. A cláusula DISTINCT é adicionada para evitar linhas duplicadas, e os resultados são ordenados em ordem crescente pelo nome do aluno usando ORDER BY a.nome. Observe que neste caso precisamos utilizar os nomes dos campos das tabelas para evitar ambiguidades, já que ambas as tabelas "aluno" e "disciplina" possuem um campo "nome".
 
 
     
