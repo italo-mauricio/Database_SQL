@@ -261,7 +261,19 @@ Resp:
 
     Essa consulta seleciona o nome do aluno e o nome da disciplina da tabela "aluno" e "disciplina", respectivamente, e junta (join) as três tabelas pela tabela intermediária "aluno_disciplina", que relaciona as matrículas dos alunos aos códigos das disciplinas. A cláusula DISTINCT é adicionada para evitar linhas duplicadas, e os resultados são ordenados em ordem crescente pelo nome do aluno usando ORDER BY a.nome. Observe que neste caso precisamos utilizar os nomes dos campos das tabelas para evitar ambiguidades, já que ambas as tabelas "aluno" e "disciplina" possuem um campo "nome".
 
+17) Faça um único select, que reproduzam os inserts existentes nas tabelas Funcionário e Aluno, gerando o resultado no formato de scripts para serem executados em outra base de dados.
 
-    
+Resp:
 
+    -- Script para inserir os funcionários na nova base de dados
+    SELECT 'INSERT INTO Funcionário (cargo, nome, salario) VALUES (''' || cargo || ''', ''' || nome || ''', ' || salarioatual || ');' AS script
+    FROM funcionario f;
+
+    -- Script para inserir os alunos na nova base de dados
+    SELECT 'INSERT INTO Aluno (matricula, nome) VALUES (''' || matricula || ''', ''' || nome || ''');' AS script
+    FROM aluno;
+
+    output:
+
+    INSERT INTO Funcionário (cargo, nome, salario) VALUES ('Analista', 'João', 3000)
     
