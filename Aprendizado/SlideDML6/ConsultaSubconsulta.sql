@@ -9,3 +9,9 @@ ou UPDATE ou dentro de outra subconsulta.
 mais complexos, que não são atendidos pelos
 mecanismos vistos até o momento.
 
+- 
+
+-
+-
+-
+
