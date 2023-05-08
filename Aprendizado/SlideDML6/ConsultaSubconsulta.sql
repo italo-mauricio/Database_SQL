@@ -33,4 +33,10 @@ no lado direito do operador de comparação
 ● Subconsultas não podem possuir claúsula ORDER BY
 
 
+                    Sintaxe
 
+    SELECT * FROM tabela
+    WHERE
+    [ [NOT] EXISTS (subconsulta)]
+    [ coluna OperadorUnicaLinhas (subconsulta)]
+    [ coluna [NOT] OperadorVariasLinhas (subconsulta)];
