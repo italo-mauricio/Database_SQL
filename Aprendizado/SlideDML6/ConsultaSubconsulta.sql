@@ -99,3 +99,5 @@ FROM funcionario AS f
 WHERE f.salario < ALL (SELECT AVG(salario)
 FROM funcionario
 GROUP BY coddepartamento);
+
+
