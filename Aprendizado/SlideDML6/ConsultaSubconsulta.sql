@@ -56,3 +56,46 @@ no lado direito do operador de comparação
 
     - Operadores de várias linhas são usados com subconsultas que podem retornar mais de uma linha.
     - Podemos usar o operador NOT para inverter a operação.
+
+
+                Subconsultas de Várias Linhas
+
+
+        OPERADOR                                  SIGNIFICADO
+
+            IN                         Igual a qualquer membro da lista
+            ANY                     Compara o valor a cada valor retornado pela Subconsulta
+            ALL                     Compara o valor a todo valor retornado pela Subconsulta
+
+
+
+● Localize os funcionários que recebem o mesmo salário que o salário mínimo dos departamentos.
+
+
+        SELECT f.cod,f.nome,f.salario
+        FROM f.funcionario
+        WHERE f.salario IN (SELECT MIN(salario)
+        FROM funcionario
+        GROUP BY coddepartamento);
+
+Subconsultas de Várias Linhas:
+
+● Quais os funcionários que possuem salário menor que o salário médio
+de algum departamento?
+● Quais os funcionários que possuem salário menor que o salário médio
+de todos os departamentos?
+
+SELECT f.cod,f.nome,f.salario,f.coddepartamento
+FROM funcionario AS f
+WHERE f.salario < ANY (SELECT AVG(salario)
+FROM funcionario
+GROUP BY coddepartamento);
+
+ANY e ALL são usados em conjunto com:
+>,=,<,<>,>=,<=
+
+SELECT f.cod,f.nome,f.salario,f.coddepartamento
+FROM funcionario AS f
+WHERE f.salario < ALL (SELECT AVG(salario)
+FROM funcionario
+GROUP BY coddepartamento);
