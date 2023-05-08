@@ -39,3 +39,21 @@ quando for construída:
 – contiver os campos necessários (por ex. chave primária)
 ● Se a tabela básica é destruída todas views são destruídas
 ● Views causam sobrecarga no processamento
+
+
+CREATE VIEW nome-da-view
+AS seleção;
+DROP VIEW nome-da-view;
+
+
+Exemplo prático do database:
+
+    CREATE VIEW V2funcionario AS
+    SELECT f.cod AS codigo, f.nome AS nome, d.descricao AS descricao, d.sigla as sigla
+    FROM funcionario as f INNER JOIN departamento as d ON f.cod =d.cod
+    ORDER BY 2;
+
+    select nome, descricao, sigla
+    from v2funcionario 
+
+    Aqui me retornou tudo organizado, após a junção das duas tabelas em uma úniva view.
