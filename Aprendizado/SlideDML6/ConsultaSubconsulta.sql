@@ -40,3 +40,19 @@ no lado direito do operador de comparação
     [ [NOT] EXISTS (subconsulta)]
     [ coluna OperadorUnicaLinhas (subconsulta)]
     [ coluna [NOT] OperadorVariasLinhas (subconsulta)];
+
+
+                    Classes de Operadores em Subconsultas
+
+● Operadores de comparação de uma única linha
+
+        >,=,<,<>,>=,<=
+    - Operadores de uma única linha devem ser usados com subconsultas que retornem uma única linha.
+
+
+● Operadores de várias linhas
+
+    IN, [>,=,<,<>,>=,<=] ANY, [>,=,<,<>,>=,<=] ALL
+
+    - Operadores de várias linhas são usados com subconsultas que podem retornar mais de uma linha.
+    - Podemos usar o operador NOT para inverter a operação.
