@@ -31,3 +31,33 @@ Resp:
     from aluno_nivel 
 
     Aqui estou consultando o resultado.
+
+
+2) Faça uma consulta utilizando a View acima, com as tabelas matricula e disciplina, informando o nome do aluno, o nome da disciplina que ele esta matriculado e o nível que ele se encontra.
+
+Resp:
+
+    SELECT a.nome AS nome_aluno, a.matricula, d.nome AS nome_disciplina, an.nivel 
+    FROM aluno a 
+    JOIN aluno_disciplina ad ON a.matricula = ad.matricula 
+    JOIN disciplina d ON ad.coddisciplina  = d.cod 
+    JOIN alunos_nivel2 an ON a.matricula = an.matricula 
+    GROUP BY a.matricula, a.nome, d.nome, an.nivel
+    ORDER BY nome_aluno;
+
+
+3) Baseado nas consultas acima, faça uma nova consulta que informe o total de alunos
+matriculados por disciplinas e agrupados por nível. Ordenado por disciplina e em seguida por
+nível. Algo tipo:
+
+
+Resp:
+
+    SELECT d.nome AS Disciplina, COUNT(*) AS Numero_Alunos, an.nivel AS Nível
+    FROM disciplina d 
+    JOIN aluno_disciplina ad ON d.cod = ad.coddisciplina 
+    JOIN alunos_nivel2 an ON ad.matricula = an.matricula
+    GROUP BY d.nome, an.nivel
+    ORDER BY d.nome, an.nivel;
+
+
