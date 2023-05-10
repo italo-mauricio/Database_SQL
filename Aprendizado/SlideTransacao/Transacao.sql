@@ -84,3 +84,4 @@ Comandos:
     Abort-transaction (rollback, i.e.reversão) = sinal que a transação não terminou com sucesso - as alterações já realizadas pela transação não devem ter efeito sobre os dados do banco de dados, i.e, devem ser desfeitas.
     Undo = desfaz operação 
     Redo = refaz operação
+    
