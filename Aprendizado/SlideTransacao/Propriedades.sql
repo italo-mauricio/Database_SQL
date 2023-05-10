@@ -21,3 +21,9 @@ Isolamento:
     read(B);
     B := B + 50
     write(B);
+
+Durabilidade:
+
+    Depois que a transação finaliza com sucesso, as mudanças que ela faz no banco de dados devem persistir, mesmo se houver falhas no sistema.
+
+    Assegurar a durabilidade é responsabilidade do componente do SGBD chamado recuperador de falhas.
