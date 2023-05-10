@@ -74,3 +74,13 @@ if temp < quantia then
     end 
 return;
 end
+
+
+Comandos:
+
+    Begin-transaction = marca o inicio da transação 
+    End-transaction = marca o final da transação 
+    Commit-transaction = sinal de término com sucesso - as alterações realizadas pela transação podem ser "permanentemente" gravadas no banco de dados.
+    Abort-transaction (rollback, i.e.reversão) = sinal que a transação não terminou com sucesso - as alterações já realizadas pela transação não devem ter efeito sobre os dados do banco de dados, i.e, devem ser desfeitas.
+    Undo = desfaz operação 
+    Redo = refaz operação
