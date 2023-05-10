@@ -10,3 +10,14 @@ Consistência:
 
     O resultado deve também atender as expectativas do processo real sob implementação.
     Assegurar a CONSISTÊNCIA de uma transação é responsabilidade do programador.
+
+Isolamento:
+
+    Embora diversas transações possam ser executadas de maneira concorrente, o isolamento garante que cada transação siga seu curso sem considerar ações/operações executadas por outras transações concorrentes. 
+
+    read(A);                read(A);
+    A := A – 50             A := A * 1.5;
+    write(A)                write(A);
+    read(B);
+    B := B + 50
+    write(B);
