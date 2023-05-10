@@ -56,3 +56,21 @@ O processamento das transações, realizado pelo SGBD, deve garantir que:
 
     - a execução de uma transação seja completa.
     - seja possível executar várias transações de forma simultânea, sem que inconsistências de dados sejam geradas.
+
+
+start;
+input(contaORIGEM, contaDESTINO, quantia);
+temp ;= read(Saldo[contaORIGEM]);
+if temp < quantia then 
+    begin 
+        output("Saldo insuficiente");
+    end 
+    else 
+    begin 
+        write(Saldo[contaORIGEM], temp - quantia);
+        temp = read(Saldo[contaDESTINO]);
+        write(Saldo[contaDESTINO], temp + quantia);
+        output("Transferência realizada com sucesso!");
+    end 
+return;
+end
