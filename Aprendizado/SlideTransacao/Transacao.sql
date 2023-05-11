@@ -104,3 +104,17 @@ exemplo:
     encerra a transação (solicita efetivação das suas ações)
 – ROLLBACK [WORK]
     solicita que as ações da transação sejam desfeitas
+
+
+                Propriedades de uma Transação
+
+● As transações devem ser executadas pelos SGBDs de
+maneira a evitar que problemas ocorram.
+- As ações que compões uma transação devem possuir
+um conjunto de propriedades que são normalmente
+referidas como propriedades ACID.
+
+                        Atomicidade
+                        Consistência
+                        Isolamento
+                        Durabilidade
