@@ -85,3 +85,22 @@ Comandos:
     Undo = desfaz operação 
     Redo = refaz operação
     
+
+
+- Por default, todo comando individual é considerado uma transação
+
+exemplo:
+    DELETE FROM Pacientes
+    - exclui todas ou não exclui nenhuma tupla de pacientes mantendo o BD consistente
+
+● Os comandos realmente envolvidos na Transação são:
+    – Update, Delete e Insert
+
+● SQL Padrão (SQL-92):
+
+– SET TRANSACTION
+    inicia e configura características de uma transação
+– COMMIT [WORK]
+    encerra a transação (solicita efetivação das suas ações)
+– ROLLBACK [WORK]
+    solicita que as ações da transação sejam desfeitas
