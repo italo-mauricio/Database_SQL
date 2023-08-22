@@ -1,6 +1,6 @@
                                 View 
 
-● Tabela virtual criada sobre tabelas reais a partir de queries
+● Tabela virtual criada sobre tabelas reais a partir de queryes
 ● Finalidades:
 
 – Permitem adaptar a aparência da base de dados considerando
